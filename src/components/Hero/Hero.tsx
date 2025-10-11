@@ -59,8 +59,8 @@ const Hero: React.FC = () => {
       className="relative flex flex-col justify-center items-center min-h-screen text-center text-white overflow-hidden"
     >
       {/* optional background */}
-      {<video className="absolute inset-0 w-full h-full object-cover" src={bgVideo} autoPlay loop muted playsInline />}
-      <div className="absolute inset-0 bg-black/24 z-0" />
+      {/* {<video className="absolute inset-0 w-full h-full object-cover" src={bgVideo} autoPlay loop muted playsInline />}
+      <div className="absolute inset-0 bg-black/24 z-0" /> */}
 
       {/* === Cyber Rain Layer === */}
 <div className={styles.dataRainLayer}>

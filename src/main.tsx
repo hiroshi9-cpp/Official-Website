@@ -5,7 +5,7 @@ import './index.css';
 import Scrollbar from './components/Scrollbar/Scrollbar.tsx';
 import Navbar from './components/Navbar/Navbar.tsx';
 import Hero from "./components/Hero/Hero.tsx";
-import WorkExperience from "./components/WorkExperience";
+import WorkExperience from "./components/WorkExperience/WorkExperience.tsx";
 import Resume from "./components/Resume";
 import Education from "./components/Education";
 import Interests from "./components/Interests";
