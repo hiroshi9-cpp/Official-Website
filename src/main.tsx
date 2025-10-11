@@ -37,7 +37,7 @@ import WorkExperience from "./components/WorkExperience/WorkExperience.tsx";
 import Resume from "./components/Resume/Resume.tsx";
 import Education from "./components/Education/Education.tsx";
 import Interests from "./components/Interests/Interests.tsx";
-import Contact from "./components/Contact";
+import Contact from "./components/Contact/Contact.tsx";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
