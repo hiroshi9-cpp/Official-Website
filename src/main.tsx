@@ -2,13 +2,41 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 
+// Component for random positioned data streams
+const RandomDataStreams = () => {
+  const streams = Array.from({ length: 5 }, (_, i) => ({
+    id: i,
+    left: Math.random() * 90 + 5, // Random between 5% and 95%
+    duration: Math.random() * 10 + 15, // Random between 15s and 25s
+    delay: Math.random() * 10, // Random between 0s and 10s
+    opacity: Math.random() * 0.4 + 0.6 // Random between 0.6 and 1.0
+  }));
+
+  return (
+    <div className="global-data-rain">
+      {streams.map(stream => (
+        <div 
+          key={stream.id}
+          className="global-data-stream" 
+          style={{
+            left: `${stream.left}%`,
+            animationDuration: `${stream.duration}s`,
+            animationDelay: `${stream.delay}s`,
+            opacity: stream.opacity
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 import Scrollbar from './components/Scrollbar/Scrollbar.tsx';
 import Navbar from './components/Navbar/Navbar.tsx';
 import Hero from "./components/Hero/Hero.tsx";
 import WorkExperience from "./components/WorkExperience/WorkExperience.tsx";
 import Resume from "./components/Resume/Resume.tsx";
 import Education from "./components/Education/Education.tsx";
-import Interests from "./components/Interests";
+import Interests from "./components/Interests/Interests.tsx";
 import Contact from "./components/Contact";
 
 createRoot(document.getElementById('root')!).render(
@@ -91,13 +119,7 @@ createRoot(document.getElementById('root')!).render(
     </div>
     
     {/* Global falling pulsars */}
-    <div className="global-data-rain">
-      <div className="global-data-stream" style={{left: '15%', animationDuration: '14s', animationDelay: '0s', opacity: '0.8'}}></div>
-      <div className="global-data-stream" style={{left: '35%', animationDuration: '22s', animationDelay: '7s', opacity: '0.7'}}></div>
-      <div className="global-data-stream" style={{left: '55%', animationDuration: '19s', animationDelay: '20s', opacity: '0.9'}}></div>
-      <div className="global-data-stream" style={{left: '75%', animationDuration: '21s', animationDelay: '8s', opacity: '0.6'}}></div>
-      <div className="global-data-stream" style={{left: '90%', animationDuration: '20s', animationDelay: '45s', opacity: '0.8'}}></div>
-    </div>
+    <RandomDataStreams />
     
     {/* Global fixed moon */}
     <div className="global-moon"></div>
