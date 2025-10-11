@@ -1,0 +1,76 @@
+:root {
+  --neon-cyan: #00ffff;
+  --neon-green: #00ff88;
+}
+
+.resumeSection {
+  background: transparent;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+  position: relative;
+}
+
+/* Title with same styling as Work Experience */
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan), 0 0 25px var(--neon-green);
+  margin-bottom: 2rem;
+  animation: glowPulse 3s ease-in-out infinite;
+  position: relative;
+  z-index: 10;
+}
+
+.downloadContainer {
+  text-align: center;
+}
+
+.downloadButton {
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+.downloadButton:hover {
+  background: rgba(0, 255, 255, 0.2);
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.5),
+    0 5px 15px rgba(0, 255, 255, 0.3);
+  text-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
+}
+
+/* Glow animation matching Work Experience */
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 10px var(--neon-cyan), 0 0 25px var(--neon-green); }
+  50% { text-shadow: 0 0 20px var(--neon-green), 0 0 40px var(--neon-cyan); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .downloadButton {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
