@@ -47,6 +47,8 @@ const Resume: React.FC = () => {
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [currentCommand, setCurrentCommand] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [inputHistory, setInputHistory] = useState<string[]>([]);
+  const [historyIndex, setHistoryIndex] = useState(-1);
 
   const commands = {
     "help": "Available commands: personal, skills, experience, download, clear",
@@ -59,6 +61,12 @@ const Resume: React.FC = () => {
 
   const executeCommand = (cmd: string) => {
     const command = cmd.toLowerCase().trim();
+    
+    // Add to input history if not empty
+    if (cmd.trim()) {
+      setInputHistory(prev => [...prev, cmd.trim()]);
+      setHistoryIndex(-1);
+    }
     
     if (command === "clear") {
       setCommandHistory([]);
@@ -83,10 +91,29 @@ const Resume: React.FC = () => {
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && currentCommand.trim()) {
       executeCommand(currentCommand);
       setCurrentCommand("");
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (inputHistory.length > 0) {
+        const newIndex = historyIndex === -1 ? inputHistory.length - 1 : Math.max(0, historyIndex - 1);
+        setHistoryIndex(newIndex);
+        setCurrentCommand(inputHistory[newIndex]);
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex >= 0) {
+        const newIndex = historyIndex + 1;
+        if (newIndex >= inputHistory.length) {
+          setHistoryIndex(-1);
+          setCurrentCommand("");
+        } else {
+          setHistoryIndex(newIndex);
+          setCurrentCommand(inputHistory[newIndex]);
+        }
+      }
     }
   };
 
@@ -158,12 +185,11 @@ const Resume: React.FC = () => {
                 type="text"
                 value={currentCommand}
                 onChange={(e) => setCurrentCommand(e.target.value)}
-                onKeyPress={handleKeyPress}
+                onKeyDown={handleKeyDown}
                 className={styles.terminalInput}
                 placeholder="Type a command..."
                 autoFocus
               />
-              <span className={styles.cursor}></span>
             </div>
           )}
           

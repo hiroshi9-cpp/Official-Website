@@ -81,7 +81,7 @@
 /* Terminal Container */
 .terminalContainer {
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   background: var(--terminal-bg);
   border: 2px solid var(--neon-cyan);
   border-radius: 12px;
@@ -132,12 +132,12 @@
 
 /* Terminal Body */
 .terminalBody {
-  padding: 1.5rem;
-  min-height: 400px;
-  max-height: 500px;
+  padding: 2rem;
+  min-height: 600px;
+  max-height: 700px;
   overflow-y: auto;
   font-family: 'Courier New', monospace;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
   background: linear-gradient(
     135deg,
@@ -229,6 +229,7 @@
   align-items: center;
   margin-top: 1rem;
   position: relative;
+  width: 100%;
 }
 
 .prompt {
@@ -242,27 +243,15 @@
   border: none;
   color: var(--neon-cyan);
   font-family: 'Courier New', monospace;
-  font-size: 0.95rem;
+  font-size: 1rem;
   outline: none;
   flex-grow: 1;
   caret-color: var(--neon-cyan);
+  width: 100%;
 }
 
 .terminalInput::placeholder {
   color: rgba(0, 255, 255, 0.4);
-}
-
-.cursor {
-  width: 8px;
-  height: 18px;
-  background: var(--neon-cyan);
-  margin-left: 2px;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
 }
 
 .clickPrompt {
