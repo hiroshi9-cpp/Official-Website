@@ -1,0 +1,939 @@
+:root {
+  --warm-gold: #f4d03f;
+  --vintage-brown: #8b4513;
+  --cream-white: #faf0e6;
+  --soft-shadow: rgba(0, 0, 0, 0.3);
+  --polaroid-bg: #ffffff;
+}
+
+.educationSection {
+  background: transparent;
+  color: white;
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating Particles */
+.floatingParticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floatingParticles::before,
+.floatingParticles::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #00ffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ffff;
+  animation: float 8s ease-in-out infinite;
+}
+
+.floatingParticles::before {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floatingParticles::after {
+  top: 60%;
+  right: 15%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(-30px) rotate(180deg); opacity: 1; }
+}
+
+/* Light Rays */
+.lightRays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    rgba(0, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: lightShift 10s ease-in-out infinite;
+}
+
+@keyframes lightShift {
+  0%, 100% { opacity: 0.3; transform: rotate(0deg); }
+  50% { opacity: 0.6; transform: rotate(5deg); }
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  z-index: 10;
+  position: relative;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 25px #00ff88;
+  margin-bottom: 1rem;
+  animation: glowPulse 3s ease-in-out infinite;
+  position: relative;
+  z-index: 10;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  opacity: 0.9;
+}
+
+/* Journey Container */
+.journeyContainer {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 4rem;
+  position: relative;
+  z-index: 5;
+  min-height: 80vh;
+}
+
+/* Left Side - Text Journey */
+.textJourney {
+  flex: 1;
+  position: relative;
+  padding: 2rem;
+}
+
+.timelineContainer {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.progressBar {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  height: calc(100% - 3rem);
+  width: 4px;
+  background: rgba(0, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.progressFill {
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    #00ffff,
+    #00ff88
+  );
+  border-radius: 2px;
+  transition: height 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Phase Blocks */
+.phaseBlock {
+  position: relative;
+  margin-bottom: 3rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  opacity: 0.6;
+}
+
+.activePhase {
+  opacity: 1;
+  transform: translateX(10px);
+}
+
+.completedPhase {
+  opacity: 0.8;
+}
+
+.phaseMarker {
+  position: absolute;
+  left: -2.5rem;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid #00ffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.activePhase .phaseMarker {
+  background: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.completedPhase .phaseMarker {
+  background: #00ff88;
+  border-color: #00ff88;
+}
+
+.phaseNumber {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #00ffff;
+}
+
+.activePhase .phaseNumber,
+.completedPhase .phaseNumber {
+  color: #000;
+}
+
+/* Phase Content */
+.phaseContent {
+  padding: 1rem 0;
+}
+
+.phaseTitle {
+  font-size: 1.5rem;
+  color: #00ffff;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  transition: all 0.4s ease;
+}
+
+.activePhase .phaseTitle {
+  color: #00ff88;
+  text-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+}
+
+.phasePeriod {
+  color: #00ff88;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.phaseStory {
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: all 0.4s ease;
+}
+
+.activePhase .phaseStory {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.phaseHighlight {
+  color: #00ffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 255, 255, 0.1);
+  border-left: 3px solid #00ffff;
+  border-radius: 0 8px 8px 0;
+  display: inline-block;
+}
+
+/* Right Side - Card Stack */
+.cardStack {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+}
+
+.stackContainer {
+  position: relative;
+  width: 450px;
+  height: 600px;
+  margin-bottom: 2rem;
+  padding: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(0, 255, 136, 0.1) 100%
+  );
+  border: 2px solid transparent;
+  border-radius: 25px;
+  background-clip: padding-box;
+  position: relative;
+  overflow: visible;
+}
+
+.stackContainer::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    #00ffff,
+    #00ff88,
+    #00ffff,
+    #00ff88
+  );
+  border-radius: 25px;
+  z-index: -1;
+  animation: framePulse 3s ease-in-out infinite;
+}
+
+.stackContainer::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(0, 255, 255, 0.3),
+    transparent,
+    rgba(0, 255, 136, 0.3),
+    transparent
+  );
+  border-radius: 35px;
+  z-index: -2;
+  animation: frameRotate 8s linear infinite;
+  filter: blur(8px);
+}
+
+@keyframes framePulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes frameRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Education Cards */
+.educationCard {
+  position: absolute;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  background: linear-gradient(
+    145deg, 
+    rgba(26, 26, 46, 0.95) 0%,
+    rgba(22, 33, 62, 0.95) 50%,
+    rgba(15, 52, 96, 0.95) 100%
+  );
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(0, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  animation: cardFloat 6s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0) rotateX(0deg); }
+  50% { transform: translateY(-5px) rotateX(1deg); }
+}
+
+.topCard {
+  border-color: #00ffff;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(0, 255, 255, 0.4),
+    0 0 80px rgba(0, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: topCardPulse 4s ease-in-out infinite;
+}
+
+@keyframes topCardPulse {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotateX(0deg);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(0, 255, 255, 0.4),
+      0 0 80px rgba(0, 255, 255, 0.2);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02) rotateX(2deg);
+    box-shadow: 
+      0 35px 70px rgba(0, 0, 0, 0.6),
+      0 0 60px rgba(0, 255, 255, 0.6),
+      0 0 120px rgba(0, 255, 255, 0.3);
+  }
+}
+
+.cardImage {
+  width: 100%;
+  height: 70%;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.educationCard:hover .cardImage img {
+  transform: scale(1.15) rotate(1deg);
+}
+
+.educationCard:hover {
+  transform: translateY(-10px) scale(1.03) rotateY(3deg);
+  border-color: #00ff88;
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.6),
+    0 0 50px rgba(0, 255, 136, 0.5),
+    0 0 100px rgba(0, 255, 136, 0.3);
+}
+
+.educationCard:hover .cardGlow {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.cardOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    transparent 100%
+  );
+  padding: 2rem 1.5rem 1.5rem;
+  color: white;
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  color: #00ffff;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.cardPeriod {
+  color: #00ff88;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cardGlow {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: conic-gradient(
+    from 0deg,
+    #00ffff,
+    #00ff88,
+    #00ffff,
+    #00ff88,
+    #00ffff
+  );
+  border-radius: 25px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  filter: blur(12px);
+  animation: glowRotate 6s linear infinite;
+}
+
+.topCard .cardGlow {
+  opacity: 0.8;
+  animation: cardGlowPulse 3s ease-in-out infinite, glowRotate 6s linear infinite;
+}
+
+@keyframes cardGlowPulse {
+  0%, 100% { 
+    opacity: 0.8; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.05);
+  }
+}
+
+@keyframes glowRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Card Controls */
+.cardControls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.controlButton,
+.playPauseButton {
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.controlButton:hover,
+.playPauseButton:hover {
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+
+
+.playPauseButton {
+  border-color: #00ff88;
+  color: #00ff88;
+}
+
+.playPauseButton:hover {
+  background: rgba(0, 255, 136, 0.2);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 10px #00ffff, 0 0 25px #00ff88; }
+  50% { text-shadow: 0 0 20px #00ff88, 0 0 40px #00ffff; }
+}
+
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: modalFadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(20px);
+  }
+}
+
+/* Modal Container */
+.modalContainer {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: linear-gradient(
+    145deg,
+    rgba(26, 26, 46, 0.95) 0%,
+    rgba(22, 33, 62, 0.95) 50%,
+    rgba(15, 52, 96, 0.95) 100%
+  );
+  border: 2px solid #00ffff;
+  border-radius: 25px;
+  overflow: hidden;
+  animation: modalSlideIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.6),
+    0 0 50px rgba(0, 255, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: scale(0.3) rotateY(45deg) rotateX(15deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05) rotateY(-5deg) rotateX(-2deg);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1) rotateY(0deg) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* Close Button */
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 10;
+  transition: all 0.3s ease;
+  animation: closeButtonPulse 2s ease-in-out infinite;
+}
+
+.closeButton:hover {
+  background: rgba(0, 255, 255, 0.2);
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+}
+
+@keyframes closeButtonPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  }
+}
+
+/* Modal Image Container */
+.modalImageContainer {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.modalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: imageZoomIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.6s ease;
+}
+
+.modalImage:hover {
+  transform: scale(1.05);
+}
+
+@keyframes imageZoomIn {
+  from {
+    transform: scale(1.2) rotate(2deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Modal Glow Effect */
+.modalGlow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: conic-gradient(
+    from 0deg,
+    #00ffff,
+    #00ff88,
+    #00ffff,
+    #00ff88,
+    #00ffff
+  );
+  border-radius: 30px;
+  opacity: 0.6;
+  z-index: -1;
+  animation: modalGlowRotate 8s linear infinite;
+  filter: blur(15px);
+}
+
+@keyframes modalGlowRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Modal Particles */
+.modalParticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #00ffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ffff;
+  animation: particleFloat 6s ease-in-out infinite;
+}
+
+.particle:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+  top: 60%;
+  right: 15%;
+  animation-delay: 1.2s;
+}
+
+.particle:nth-child(3) {
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 2.4s;
+}
+
+.particle:nth-child(4) {
+  top: 40%;
+  right: 30%;
+  animation-delay: 3.6s;
+}
+
+.particle:nth-child(5) {
+  bottom: 20%;
+  right: 10%;
+  animation-delay: 4.8s;
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Modal Content */
+.modalContent {
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 20, 40, 0.2) 100%
+  );
+}
+
+.modalTitle {
+  font-size: 2rem;
+  color: #00ffff;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  animation: titleSlideIn 0.8s ease-out 0.3s both;
+}
+
+.modalPeriod {
+  color: #00ff88;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 1rem;
+  animation: titleSlideIn 0.8s ease-out 0.5s both;
+}
+
+.modalStory {
+  color: #e0e0e0;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  animation: titleSlideIn 0.8s ease-out 0.7s both;
+}
+
+.modalHighlight {
+  color: #00ffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 255, 255, 0.1);
+  border-left: 4px solid #00ffff;
+  border-radius: 0 12px 12px 0;
+  animation: titleSlideIn 0.8s ease-out 0.9s both;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+@keyframes titleSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal Border Animation */
+.modalBorder {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(
+    from 0deg,
+    #00ffff,
+    transparent,
+    #00ff88,
+    transparent,
+    #00ffff
+  );
+  border-radius: 27px;
+  z-index: -1;
+  animation: borderRotate 10s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes borderRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .journeyContainer {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .textJourney {
+    order: 2;
+  }
+  
+  .cardStack {
+    order: 1;
+  }
+  
+  .stackContainer {
+    width: 380px;
+    height: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .educationSection {
+    padding: 2rem 1rem;
+  }
+  
+  .timelineContainer {
+    padding-left: 2rem;
+  }
+  
+  .phaseMarker {
+    left: -1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .phaseTitle {
+    font-size: 1.2rem;
+  }
+  
+  .stackContainer {
+    width: 320px;
+    height: 420px;
+  }
+  
+  .educationCard {
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+  }
+  
+  .modalContainer {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+  
+  .modalImageContainer {
+    height: 50vh;
+  }
+  
+  .modalContent {
+    padding: 1.5rem;
+  }
+  
+  .modalTitle {
+    font-size: 1.5rem;
+  }
+  
+  .closeButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .cardControls {
+    gap: 0.5rem;
+  }
+  
+  .controlButton,
+  .playPauseButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}

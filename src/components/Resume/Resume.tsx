@@ -44,7 +44,7 @@ const resumeData = {
 const Resume: React.FC = () => {
   const [currentSection, setCurrentSection] = useState<string>("");
   const [isTerminalActive, setIsTerminalActive] = useState(false);
-  const [commandHistory, setCommandHistory] = useState<string[]>([]);
+  const [commandHistory, setCommandHistory] = useState<any[]>([]);
   const [currentCommand, setCurrentCommand] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [inputHistory, setInputHistory] = useState<string[]>([]);
