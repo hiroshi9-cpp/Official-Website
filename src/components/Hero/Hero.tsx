@@ -62,43 +62,69 @@ const Hero: React.FC = () => {
       {<video className="absolute inset-0 w-full h-full object-cover" src={bgVideo} autoPlay loop muted playsInline />}
       <div className="absolute inset-0 bg-black/24 z-0" />
 
-      <div className={`relative z-10 flex flex-col items-center justify-center space-y-6 px-4 ${styles.heroTextWrapper}`}>
-        <h1
-          ref={titleRef}
-          data-text="Hi, I'm Himon"
-          className={`${styles.heroTitle} ${styles.titleAnimated}`}
-          style={{ fontSize: "clamp(3rem, 10vw, 20rem)" }}
-        >
-          {/* visible text */}
-          Hi, I'm Himon
-          {/* sweep overlay element (animated via CSS when .sweepActive present) */}
-          <span className={styles.sweepOverlay} aria-hidden="true" />
-        </h1>
+      {/* === Cyber Rain Layer === */}
+<div className={styles.dataRainLayer}>
+  {Array.from({ length: 20 }).map((_, i) => (
+    <div
+      key={i}
+      className={styles.dataStream}
+      style={{
+        left: `${(i * 5) + (Math.random() * 5)}%`,
+        animationDuration: `${5 + Math.random() * 4}s`,
+        animationDelay: `${Math.random() * 5}s`,
+        opacity: 0.3 + Math.random() * 0.3,
+      }}
+    />
+  ))}
+</div>
+      <div className={`relative z-10 flex flex-col items-center px-4 ${styles.heroTextWrapper}`} style={{ minHeight: '100vh', justifyContent: 'center' }}>
+        <div className="flex flex-col items-center space-y-6">
+          <h1
+            ref={titleRef}
+            data-text="Hi, I'm Himon"
+            className={`${styles.heroTitle} ${styles.titleAnimated}`}
+            style={{ fontSize: "clamp(3rem, 10vw, 20rem)" }}
+          >
+            {/* visible text */}
+            Hi, I'm Himon
+            {/* sweep overlay element (animated via CSS when .sweepActive present) */}
+            <span className={styles.sweepOverlay} aria-hidden="true" />
+          </h1>
 
-        <h2 className={`${styles.heroSub}`} style={{ fontSize: "clamp(1.6rem, 4.2vw, 5rem)" }}>
-          <Typewriter
-            words={[
-              "Security Engineer",
-              "AI & Cloud Enthusiast",
-              "Cyber Defense Specialist",
-            ]}
-            loop
-            cursor
-            cursorStyle="_"
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={2000}
-          />
-        </h2>
+          <h2 className={`${styles.heroSub}`} style={{ fontSize: "clamp(1.6rem, 4.2vw, 4rem)" }}>
+            <Typewriter
+              words={[
+                "Security Engineer",
+                "AI & Cloud Enthusiast",
+                "Cyber Defense Specialist",
+              ]}
+              loop
+              cursor
+              cursorStyle="_"
+              typeSpeed={150}
+              deleteSpeed={50}
+              delaySpeed={2000}
+            />
+          </h2>
+        </div>
 
-        <p className={`${styles.heroDesc} text-gray-300 leading-relaxed max-w-2xl`} style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)" }}>
-          I build resilient, automated defense systems and research applied AI for security.
-        </p>
+        <div className={`${styles.heroDesc} ${styles.teleprompter} text-gray-300`}>
+  <div className={styles.teleprompterText}>
+    <p>Security Engineer | AI-Driven Cyber Defense | Cloud Security Architect</p>
+    <p>SIEM Engineering • Exabeam • Microsoft Sentinel • Threat Detection Automation</p>
+    <p>EDR Operations • CrowdStrike Falcon • Real-Time Incident Response</p>
+    <p>Security Automation • Azure Logic Apps • PowerShell • Python Scripting</p>
+    <p>AI & Cloud Security • LLM Vulnerability Testing • Trustworthy AI Evaluation</p>
+    <p>Microsoft Certified • AZ-900 • SC-200 • SC-400</p>
+    <p>Building Resilient, Automated, Intelligence-Driven Defense Systems 🚀</p>
+  </div>
+</div>
       </div>
 
       <div className="absolute right-0 top-0 h-full w-1 bg-cyber-blue/70" />
     </section>
   );
 };
+
 
 export default Hero;
