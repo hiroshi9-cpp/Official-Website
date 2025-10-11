@@ -1,0 +1,185 @@
+:root {
+  --cyan: #00ffff;
+  --neon: #00ff88;
+}
+
+/* wrapper */
+.heroTextWrapper {
+  text-align: center;
+  animation: heroEntrance 900ms cubic-bezier(.2,.9,.2,1) both;
+  position: relative;
+  isolation: isolate;
+}
+
+/* MAIN TITLE */
+.heroTitle {
+  font-family: var(--hero-font);
+  color: var(--cyan);
+  line-height: 0.95;
+  letter-spacing: -1px;
+  display: inline-block;
+  position: relative;
+  transform: translateZ(0);
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-shadow:
+    0 0 6px rgba(0,255,255,0.18),
+    0 0 18px rgba(0,255,255,0.08);
+  filter: drop-shadow(0 10px 30px rgba(0,255,255,0.04));
+  transition: transform 220ms ease;
+  padding: 0 6px; /* small padding so sweep can sit inside */
+  overflow: visible;
+}
+
+/* outer glow pseudo-layer */
+.heroTitle::before,
+.heroTitle::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(#000, transparent);
+  mask-image: linear-gradient(#000, transparent);
+}
+
+/* soft outer glow */
+.heroTitle::before {
+  color: var(--cyan);
+  z-index: -2;
+  filter: blur(16px) saturate(1.1);
+  opacity: 0.8;
+}
+
+/* chromatic split */
+.heroTitle::after {
+  z-index: -1;
+  mix-blend-mode: screen;
+  color: var(--neon);
+  opacity: 0.55;
+  transform: translateX(4px);
+  filter: blur(6px);
+}
+
+/* the sweep overlay element placed inside the h1 */
+.sweepOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: translateZ(0);
+  /* ensure it sits on top of pseudo elements */
+}
+
+/* gradient for the sweep */
+.sweepOverlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.85) 40%,
+    rgba(255,255,255,0.15) 55%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: translateX(-120%);
+  filter: blur(8px) saturate(1.2);
+  opacity: 0.95;
+  will-change: transform, opacity;
+}
+
+/* the sweep animation: left -> right (fast) */
+@keyframes sweep {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateX(20%);
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* when the title receives .sweepActive class, spin up the sweep overlay */
+.sweepActive .sweepOverlay {
+  opacity: 1;
+}
+.sweepActive .sweepOverlay::before {
+  animation: sweep 420ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* pulsing outer glow + flicker */
+@keyframes outerPulse {
+  0% { text-shadow: 0 0 6px rgba(0,255,255,0.12), 0 0 20px rgba(0,255,255,0.04); transform: translateY(0); }
+  50% { text-shadow: 0 0 24px rgba(0,255,255,0.4), 0 0 56px rgba(0,255,255,0.12); transform: translateY(-2px); }
+  100% { text-shadow: 0 0 6px rgba(0,255,255,0.12), 0 0 20px rgba(0,255,255,0.04); transform: translateY(0); }
+}
+
+@keyframes flicker {
+  0% { opacity: 1; filter: brightness(1.02); }
+  6% { opacity: 0.92; filter: brightness(0.88); }
+  8% { opacity: 1; filter: brightness(1.06); }
+  12% { opacity: 0.96; filter: brightness(0.95); }
+  100% { opacity: 1; filter: brightness(1.02); }
+}
+
+.titleAnimated {
+  animation: outerPulse 2.8s ease-in-out infinite, flicker 6s linear infinite;
+}
+
+/* glitch burst animation (same as earlier) */
+@keyframes glitchBurst {
+  0% { clip-path: inset(0 0 0 0); transform: translate(0,0) skew(0deg); opacity: 1; }
+  10% { clip-path: inset(10% 0 20% 0); transform: translate(-6px, -1px) skew(-2deg); opacity: 0.98; }
+  20% { clip-path: inset(30% 0 2% 0); transform: translate(6px, 2px) skew(2deg); opacity: 0.9; }
+  30% { clip-path: inset(0 0 40% 0); transform: translate(-2px, 1px) skew(-1deg); opacity: 0.95; }
+  100% { clip-path: inset(0 0 0 0); transform: translate(0,0) skew(0deg); opacity: 1; }
+}
+
+.glitch {
+  animation: glitchBurst 420ms steps(3, end);
+  will-change: clip-path, transform;
+}
+
+/* subtitle and description (kept compact) */
+.heroSub {
+  font-family: var(--hero-font);
+  color: var(--neon);
+  margin-top: -6px;
+  text-shadow: 0 0 8px rgba(0,255,136,0.18);
+  letter-spacing: 0.6px;
+  display: inline-block;
+}
+
+.heroDesc {
+  color: #e6eef0;
+  max-width: 56ch;
+  opacity: 0.96;
+  margin-top: 8px;
+}
+
+/* entrance */
+@keyframes heroEntrance {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* responsive fallback */
+@media (max-width: 420px) {
+  .heroTitle { font-size: clamp(2rem, 9.5vw, 3.6rem) !important; }
+  .heroSub   { font-size: clamp(1rem, 4.5vw, 1.3rem) !important; }
+}

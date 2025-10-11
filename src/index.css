@@ -1,0 +1,82 @@
+/* =========================
+   Global / index.css
+   - Tailwind imports
+   - font-face for GlitchGoblin (TTF)
+   - minimal global variables & resets
+   - scrollbar + body defaults
+   - small utilities (kept minimal)
+   ========================= */
+
+/* Tailwind Directives */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* -------------------------
+   Font (Glitch Goblin .ttf)
+   Place your GlitchGoblin.ttf at:
+     src/assets/fonts/GlitchGoblin.ttf
+   ------------------------- */
+@font-face {
+  font-family: 'GlitchGoblin';
+  src: url('/src/assets/fonts/GlitchGoblin.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback stack exposed as a CSS variable for components to use */
+:root {
+  --hero-font: "GlitchGoblin", "Orbitron", system-ui, -apple-system,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Global color tokens used across components */
+  --cyber-blue: #00FFFF;
+  --cyber-dark: #0A0F1F;
+  --cyber-neon: #00FF88;
+}
+
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling (keeps cyber look but minimal) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cyber-dark);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--cyber-blue);
+  border-radius: 10px;
+  border: 2px solid var(--cyber-dark);
+}
+
+/* Global page defaults */
+body {
+  background-color: var(--cyber-dark);
+  color: #ffffff;
+  font-family: var(--hero-font);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Small global utility classes (feel free to keep / remove) */
+.glow-text {
+  color: var(--cyber-blue);
+  text-shadow: 0 0 6px var(--cyber-blue), 0 0 18px rgba(0,255,255,0.06);
+}
+
+/* Ensure R3F canvases don't block page interactions (kept minimal) */
+#Home canvas {
+  display: block;
+  pointer-events: none;
+}
+
+/* Keep hero / component animations in component-scoped CSS modules.
+   (Removed all hero animations and keyframes from this file.) */
