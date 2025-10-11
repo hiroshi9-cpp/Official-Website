@@ -42,13 +42,13 @@ html {
 }
 
 /* Scrollbar styling (keeps cyber look but minimal) */
-::-webkit-scrollbar {
+.scroll-snap-container::-webkit-scrollbar {
   width: 8px;
 }
-::-webkit-scrollbar-track {
+.scroll-snap-container::-webkit-scrollbar-track {
   background: var(--cyber-dark);
 }
-::-webkit-scrollbar-thumb {
+.scroll-snap-container::-webkit-scrollbar-thumb {
   background-color: var(--cyber-blue);
   border-radius: 10px;
   border: 2px solid var(--cyber-dark);
@@ -64,4 +64,18 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Section snapping styles */
+.scroll-snap-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.scroll-snap-section {
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }

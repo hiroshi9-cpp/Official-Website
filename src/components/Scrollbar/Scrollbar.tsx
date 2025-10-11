@@ -3,10 +3,13 @@ import "./Scrollbar.module.css";
 
 const Scrollbar = () => {
   useEffect(() => {
+    const scrollContainer = document.getElementById("scroll-container");
+    if (!scrollContainer) return;
+
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+      const scrollTop = scrollContainer.scrollTop;
+      const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+      const scrollPercent = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
 
       // hue cycles from cyan → green → yellow
       const hue = 180 - scrollPercent * 100;
@@ -18,10 +21,10 @@ const Scrollbar = () => {
       document.documentElement.style.setProperty("--scroll-brightness", brightness.toString());
     };
 
-    window.addEventListener("scroll", handleScroll);
+    scrollContainer.addEventListener("scroll", handleScroll);
     handleScroll(); // initialize on mount
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => scrollContainer.removeEventListener("scroll", handleScroll);
   }, []);
 
   // This component doesn’t render visible elements; it just controls styling

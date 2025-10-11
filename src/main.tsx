@@ -17,13 +17,25 @@ createRoot(document.getElementById('root')!).render(
     <Scrollbar />
 
     <Navbar />
-    <main>
-      <Hero />
-      <WorkExperience />
-      <Resume />
-      <Education />
-      <Interests />
-      <Contact />
+    <main id="scroll-container" className="scroll-snap-container">
+      <section id="Home" className="scroll-snap-section">
+        <Hero />
+      </section>
+      <section id="Work Experience" className="scroll-snap-section">
+        <WorkExperience />
+      </section>
+      <section id="Resume" className="scroll-snap-section">
+        <Resume />
+      </section>
+      <section id="Education" className="scroll-snap-section">
+        <Education />
+      </section>
+      <section id="Interests" className="scroll-snap-section">
+        <Interests />
+      </section>
+      <section id="Contact" className="scroll-snap-section">
+        <Contact />
+      </section>
     </main>
   </StrictMode>,
 );

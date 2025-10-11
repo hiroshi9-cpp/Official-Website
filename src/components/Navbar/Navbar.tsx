@@ -20,6 +20,7 @@ const Navbar = () => {
               duration={500}
               spy={true}
               activeClass={styles.active}
+              containerId="scroll-container"
             >
               {section}
             </Link>
