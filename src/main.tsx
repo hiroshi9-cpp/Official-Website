@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import Navbar from './components/Navbar.tsx'
+import Navbar from './components/Navbar/Navbar.tsx'
 import Hero from "./components/Hero/Hero.tsx";
 import WorkExperience from "./components/WorkExperience";
 import Resume from "./components/Resume";

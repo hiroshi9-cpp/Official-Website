@@ -1,0 +1,169 @@
+:root {
+  --cyber-blue: #00ffff;
+  --cyber-neon: #00ff88;
+  --cyber-dark: #0a0f1f;
+}
+
+/* =============================
+   NAVBAR CONTAINER (HUD FRAME)
+   ============================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 15, 31, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow:
+    0 0 8px rgba(0, 255, 255, 0.2),
+    inset 0 0 12px rgba(0, 255, 255, 0.08);
+  z-index: 50;
+  overflow: hidden;
+  animation: borderPulse 6s ease-in-out infinite;
+}
+
+/* optional animated sweep beam */
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,255,255,0) 0%,
+    rgba(0,255,255,0.25) 50%,
+    rgba(0,255,255,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: sweep 8s linear infinite;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =============================
+   NAV LIST CONTAINER
+   ============================= */
+.navList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 1rem;
+  position: relative;
+  z-index: 2; /* above sweep beam */
+}
+
+/* =============================
+   NAV ITEMS
+   ============================= */
+.navItem {
+  position: relative;
+  color: #c9e8ff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  animation: textFlicker 10s linear infinite;
+  animation-delay: calc(var(--i) * 0.8s);
+}
+
+/* glowing underline on hover */
+.navItem::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyber-blue), var(--cyber-neon));
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.navItem:hover {
+  color: var(--cyber-blue);
+  text-shadow: 0 0 6px var(--cyber-blue), 0 0 20px rgba(0,255,255,0.4);
+}
+
+.navItem:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* =============================
+   ACTIVE LINK (scroll spy)
+   ============================= */
+.active {
+  color: var(--cyber-neon);
+  text-shadow:
+    0 0 8px var(--cyber-neon),
+    0 0 24px rgba(0,255,136,0.4);
+  font-weight: 600;
+}
+
+/* =============================
+   BRAND LOGO (Optional Left Tag)
+   ============================= */
+.brand {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--hero-font);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: var(--cyber-blue);
+  text-shadow: 0 0 10px var(--cyber-blue), 0 0 30px rgba(0,255,255,0.4);
+  animation: glowShift 5s ease-in-out infinite alternate;
+}
+
+/* =============================
+   KEYFRAMES
+   ============================= */
+@keyframes borderPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 6px rgba(0,255,255,0.2),
+      inset 0 0 12px rgba(0,255,255,0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 14px rgba(0,255,255,0.4),
+      inset 0 0 20px rgba(0,255,255,0.12);
+  }
+}
+
+@keyframes sweep {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glowShift {
+  from { text-shadow: 0 0 10px #00ffff, 0 0 20px rgba(0,255,255,0.6); }
+  to { text-shadow: 0 0 12px #00ff88, 0 0 30px rgba(0,255,136,0.6); }
+}
+
+@keyframes textFlicker {
+  0% { opacity: 1; }
+  2% { opacity: 0.4; }
+  5% { opacity: 1; }
+  9% { opacity: 0.6; }
+  12% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+/* =============================
+   RESPONSIVE ADJUSTMENTS
+   ============================= */
+@media (max-width: 768px) {
+  .navList {
+    gap: 1.5rem;
+    font-size: 0.8rem;
+  }
+  .brand {
+    font-size: 1rem;
+    left: 1rem;
+  }
+}
