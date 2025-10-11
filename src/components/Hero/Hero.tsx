@@ -121,7 +121,7 @@ const Hero: React.FC = () => {
 </div>
       </div>
 
-      <div className="absolute right-0 top-0 h-full w-1 bg-cyber-blue/70" />
+
     </section>
   );
 };

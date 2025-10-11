@@ -1,0 +1,44 @@
+:root {
+  --scroll-hue: 180; /* initial cyan hue */
+  --scroll-brightness: 1;
+}
+
+/* Custom cyberpunk scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 15, 31, 0.7);
+  border-left: 1px solid rgba(0,255,255,0.15);
+}
+
+/* Reactive scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--scroll-hue), 100%, 65%) 0%,
+    hsl(calc(var(--scroll-hue) + 30), 100%, 55%) 100%
+  );
+  border-radius: 10px;
+  box-shadow: 0 0 calc(8px * var(--scroll-brightness))
+    hsl(var(--scroll-hue), 100%, 70%);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  animation: scrollPulse 4s ease-in-out infinite;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(calc(1.1 * var(--scroll-brightness)));
+}
+
+/* Pulse animation (breathing glow) */
+@keyframes scrollPulse {
+  0%, 100% {
+    box-shadow: 0 0 calc(8px * var(--scroll-brightness))
+      hsl(var(--scroll-hue), 100%, 65%);
+  }
+  50% {
+    box-shadow: 0 0 calc(14px * var(--scroll-brightness))
+      hsl(var(--scroll-hue), 100%, 70%);
+  }
+}
