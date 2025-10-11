@@ -7,35 +7,51 @@ const Hero: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null);
 
   useEffect(() => {
-    let mounted = true;
-    function scheduleGlitch() {
-      if (!mounted) return;
-      const delay = 5000 + Math.random() * 8000; // 5-13s randomized
-      const t = setTimeout(() => {
-        if (!mounted || !titleRef.current) return;
+  let mounted = true;
 
-        // Add glitch + sweepActive classes (CSS module names)
-        const el = titleRef.current;
-        el.classList.add(styles.glitch);
-        el.classList.add(styles.sweepActive || ""); // ensure property exists
+  function scheduleGlitch() {
+    if (!mounted) return;
+    const delay = 500 + Math.random() * 5000; // 0.5–1.5s randomized
 
-        // remove after animation finishes
-        setTimeout(() => {
-          el.classList.remove(styles.glitch);
-          el.classList.remove(styles.sweepActive || "");
-        }, 520); // slightly longer than CSS animation (420ms)
+    const t = setTimeout(() => {
+      if (!mounted || !titleRef.current) return;
+      const el = titleRef.current;
 
-        scheduleGlitch();
-      }, delay);
-      return t;
-    }
+      // random hue shift for cyan-related colors (150-210 degrees)
+      const cyanHue = 150 + Math.random() * 60; // cyan to blue range
+      el.style.setProperty("--hue", `${cyanHue}deg`);
 
-    const timer = scheduleGlitch();
-    return () => {
-      mounted = false;
-      clearTimeout(timer as unknown as number);
-    };
-  }, []);
+      // apply glitch + sweep
+      el.classList.add(styles.glitch);
+      el.classList.add(styles.sweepActive || "");
+
+      // quick secondary burst (optional)
+      setTimeout(() => {
+        if (mounted && el) {
+          el.classList.add(styles.glitch);
+          setTimeout(() => el.classList.remove(styles.glitch), 150);
+        }
+      }, 150 + Math.random() * 150);
+
+      // remove classes after animation
+      setTimeout(() => {
+        el.classList.remove(styles.glitch);
+        el.classList.remove(styles.sweepActive || "");
+      }, 520);
+
+      scheduleGlitch();
+    }, delay);
+
+    return t;
+  }
+
+  const timer = scheduleGlitch();
+  return () => {
+    mounted = false;
+    clearTimeout(timer as unknown as number);
+  };
+}, []);
+
 
   return (
     <section
