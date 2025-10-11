@@ -18,53 +18,6 @@
   overflow: hidden;
 }
 
-/* CRT Effects */
-.scanlines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 255, 255, 0.03) 0px,
-    rgba(0, 255, 255, 0.03) 1px,
-    transparent 2px,
-    transparent 4px
-  );
-  pointer-events: none;
-  z-index: 1;
-  animation: scanlineMove 2s linear infinite;
-}
-
-.crtEffect {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 0%,
-    rgba(0, 255, 255, 0.05) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-  animation: crtFlicker 0.15s linear infinite alternate;
-}
-
-@keyframes scanlineMove {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 4px; }
-}
-
-@keyframes crtFlicker {
-  0% { opacity: 1; }
-  98% { opacity: 1; }
-  99% { opacity: 0.98; }
-  100% { opacity: 1; }
-}
-
 /* Title */
 .title {
   font-size: clamp(2rem, 5vw, 3rem);
