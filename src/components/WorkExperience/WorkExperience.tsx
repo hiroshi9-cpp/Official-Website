@@ -101,50 +101,6 @@ const workExperiences: WorkExperience[] = [
     ],
     image: "/src/assets/work-ex/iit-kgp.png",
     },
-  {
-    id: 5,
-    company: "Tech Startup",
-    position: "Full Stack Developer",
-    duration: "2019",
-    location: "Remote",
-    description:
-      "Built scalable web applications and implemented cybersecurity best practices.",
-    technologies: [
-      "React",
-      "Node.js",
-      "MongoDB",
-      "AWS",
-      "Docker",
-    ],
-    achievements: [
-      "Developed secure authentication systems",
-      "Implemented CI/CD pipelines",
-      "Optimized application performance by 40%",
-    ],
-    image: "/src/assets/work-ex/startup.png",
-    },
-  {
-    id: 6,
-    company: "Freelance Projects",
-    position: "Security Consultant",
-    duration: "2018-2019",
-    location: "Global",
-    description:
-      "Provided cybersecurity consulting for small to medium enterprises.",
-    technologies: [
-      "Penetration Testing",
-      "Security Audits",
-      "Risk Assessment",
-      "Compliance",
-      "Training",
-    ],
-    achievements: [
-      "Conducted 50+ security assessments",
-      "Helped clients achieve compliance standards",
-      "Reduced security incidents by 60%",
-    ],
-    image: "/src/assets/work-ex/freelance.png",
-  },
 ];
 
 const WorkExperience: React.FC = () => {
@@ -169,6 +125,7 @@ const WorkExperience: React.FC = () => {
 
   return (
     <section id="WorkExperience" className={styles.workSection}>
+
       <div className={styles.warpLines}></div>
       <div className={styles.comets}></div>
       <div className={styles.shootingStars}></div>
@@ -245,6 +202,17 @@ const WorkExperience: React.FC = () => {
             className={styles.modal}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Cinematic Background Effects */}
+            <div className={styles.modalBorderGlow}></div>
+            <div className={styles.modalFireGlow}></div>
+            <div className={styles.modalParticles}>
+              <div className={styles.modalParticle}></div>
+              <div className={styles.modalParticle}></div>
+              <div className={styles.modalParticle}></div>
+              <div className={styles.modalParticle}></div>
+              <div className={styles.modalParticle}></div>
+            </div>
+            
             <button
               className={styles.closeButton}
               onClick={handleCloseModal}

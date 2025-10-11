@@ -58,25 +58,9 @@ const Hero: React.FC = () => {
       id="Home"
       className="relative flex flex-col justify-center items-center min-h-screen text-center text-white overflow-hidden"
     >
-      {/* optional background */}
-      {/* {<video className="absolute inset-0 w-full h-full object-cover" src={bgVideo} autoPlay loop muted playsInline />}
-      <div className="absolute inset-0 bg-black/24 z-0" /> */}
 
-      {/* === Cyber Rain Layer === */}
-<div className={styles.dataRainLayer}>
-  {Array.from({ length: 20 }).map((_, i) => (
-    <div
-      key={i}
-      className={styles.dataStream}
-      style={{
-        left: `${(i * 5) + (Math.random() * 5)}%`,
-        animationDuration: `${5 + Math.random() * 4}s`,
-        animationDelay: `${Math.random() * 5}s`,
-        opacity: 0.3 + Math.random() * 0.3,
-      }}
-    />
-  ))}
-</div>
+
+
       <div className={`relative z-10 flex flex-col items-center px-4 ${styles.heroTextWrapper}`} style={{ minHeight: '100vh', justifyContent: 'center' }}>
         <div className="flex flex-col items-center space-y-6">
           <h1
