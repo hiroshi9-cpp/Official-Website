@@ -94,7 +94,7 @@ body {
     0 0 60px rgba(255,255,255,0.4),
     inset -10px -10px 20px rgba(0,0,0,0.2);
   animation: moonFloat 25s ease-in-out infinite, moonRotate 15s linear infinite, moonGlitch 8s ease-in-out infinite;
-  z-index: 9999;
+  z-index: 1;
   overflow: hidden;
   pointer-events: none;
 }
