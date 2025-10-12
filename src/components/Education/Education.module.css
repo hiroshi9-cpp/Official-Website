@@ -112,6 +112,7 @@
   position: relative;
   z-index: 5;
   min-height: 80vh;
+  transform: translateY(-2rem);
 }
 
 /* Left Side - Text Journey */
