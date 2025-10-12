@@ -64,6 +64,7 @@ const Education: React.FC = () => {
 
   const handleCloseModal = () => {
     setSelectedImage(null);
+    setIsAutoPlaying(true);
   };
 
   return (
