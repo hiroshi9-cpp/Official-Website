@@ -3,27 +3,31 @@ import styles from "./Education.module.css";
 
 const educationJourney = [
   {
-    phase: "High School",
-    period: "2014 - 2018",
-    story: "Building foundations... Mathematics competitions, science fairs, and late nights debugging my first real programs.",
-    highlight: "Science fair winner",
-    image: "/src/assets/education/highschool.jpg"
+    phase: "High School – South Point High School, Kolkata",
+    period: "2005 – 2020",
+    story:
+      "First started to code in C++",
+    highlight: "95.4% in AISSCE (Science Stream)",
+    image: "/src/assets/education/school.jpg"
   },
   {
-    phase: "Undergraduate",
-    period: "2020",
-    story: "New beginnings... Stepping into university life, making lifelong friends, and diving deep into computer science.",
-    highlight: "Data Structures mastery",
-    image: "/src/assets/education/freshman.jpg"
+    phase: "Heritage Institute of Technology, Kolkata",
+    period: "2020 – 2024",
+    story:
+      "Studied hard, partied harder. Had some great professors",
+    highlight: "B.Tech Computer Science & Engineering – GPA 9.44/10",
+    image: "/src/assets/education/college.jpg"
   },
   {
-    phase: "Graduate School",
-    period: "2021",
-    story: "Finding my passion... Discovered cybersecurity, joined the CS society, and started my first research project.",
-    highlight: "First hackathon",
-    image: "/src/assets/education/sophomore.jpg"
+    phase: "Graduate Aspirant – Georgia Institute of Technology (Planned)",
+    period: "Fall 2026 (Incoming)",
+    story:
+      "Proudly studying in one of the best schools in US",
+    highlight: "MS Cybersecurity – Fall 2026",
+    image: "/src/assets/education/gatech.jpg"
   }
 ];
+
 
 const Education: React.FC = () => {
   const [currentPhase, setCurrentPhase] = useState(0);
@@ -69,7 +73,7 @@ const Education: React.FC = () => {
       
       <div className={styles.header}>
         <h2 className={styles.title}>Education Journey</h2>
-        <p className={styles.subtitle}>From first code to graduation</p>
+        <p className={styles.subtitle}>From "Hello World" to Georgia Tech</p>
       </div>
       
       <div className={styles.journeyContainer}>
