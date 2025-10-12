@@ -69,9 +69,6 @@ const Education: React.FC = () => {
 
   return (
     <section id="Education" className={styles.educationSection}>
-      <div className={styles.floatingParticles}></div>
-      <div className={styles.lightRays}></div>
-      
       <div className={styles.header}>
         <h2 className={styles.title}>Education Journey</h2>
         <p className={styles.subtitle}>From "Hello World" to Georgia Tech</p>

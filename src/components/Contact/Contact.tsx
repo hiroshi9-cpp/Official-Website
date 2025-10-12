@@ -43,9 +43,6 @@ const Contact: React.FC = () => {
 
   return (
     <section id="Contact" className={styles.contactSection}>
-      <div className={styles.floatingParticles}></div>
-      <div className={styles.lightRays}></div>
-      
       <div className={styles.header}>
         <h2 className={styles.title}>Contact</h2>
         <p className={styles.subtitle}>Let's connect and build something amazing</p>
