@@ -99,18 +99,21 @@ const Hero: React.FC = () => {
 
         <div className={`${styles.heroDesc} ${styles.teleprompter} text-gray-300`}>
   <div className={styles.teleprompterText}>
-    <p>Security Engineer | AI-Driven Cyber Defense | Cloud Security Architect</p>
-    <p>SIEM Engineering • Exabeam • Microsoft Sentinel • Threat Detection Automation</p>
-    <p>EDR Operations • CrowdStrike Falcon • Real-Time Incident Response</p>
-    <p>Security Automation • Azure Logic Apps • PowerShell • Python Scripting</p>
-    <p>AI & Cloud Security • LLM Vulnerability Testing • Trustworthy AI Evaluation</p>
-    <p>Microsoft Certified • AZ-900 • SC-200 • SC-400</p>
-    <p>Building Resilient, Automated, Intelligence-Driven Defense Systems 🚀</p>
-  </div>
+  <p>Security Engineer | AI-Powered Cyber Defense | Security Automation Architect</p>
+  
+  <p>Microsoft Certified: AZ-900 • SC-200 • SC-400</p>
+  
+  <p>SIEM Engineering — Exabeam (EQL) • Microsoft Sentinel (KQL) • Threat Detection Automation</p>
+  <p>EDR Operations — CrowdStrike Falcon • Real-Time Incident Response</p>
+  
+  <p>Security Automation — Azure Logic Apps • PowerShell • Python Engineering</p>
+  <p>AI & Cloud Security — LLM Vulnerability Testing • Trustworthy AI Evaluation</p>
+  
+  
+  <p>Building Resilient, Adaptive, and Intelligence-Driven Defense Systems</p>
+</div>
 </div>
       </div>
-
-
     </section>
   );
 };
