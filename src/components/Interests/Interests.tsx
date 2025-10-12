@@ -68,6 +68,17 @@ const Interests: React.FC = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const intervalRef = useRef<number | null>(null);
 
+  const restartAutoplay = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    if (isAutoRotating) {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % interests.length);
+      }, 4000);
+    }
+  };
+
   useEffect(() => {
     if (isAutoRotating) {
       intervalRef.current = setInterval(() => {
@@ -91,6 +102,7 @@ const Interests: React.FC = () => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setCurrentIndex((prev) => (prev + 1) % interests.length);
+    restartAutoplay();
     setTimeout(() => setIsTransitioning(false), 600);
   };
 
@@ -98,6 +110,7 @@ const Interests: React.FC = () => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setCurrentIndex((prev) => (prev - 1 + interests.length) % interests.length);
+    restartAutoplay();
     setTimeout(() => setIsTransitioning(false), 600);
   };
 
