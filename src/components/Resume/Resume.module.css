@@ -305,6 +305,352 @@
   50% { text-shadow: 0 0 20px var(--neon-green), 0 0 40px var(--neon-cyan); }
 }
 
+/* Skills Container */
+.skillsContainer {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 2px solid rgba(0, 255, 136, 0.3);
+  border-radius: 10px;
+  background: rgba(0, 255, 136, 0.05);
+}
+
+.skillCategory {
+  margin-bottom: 1.5rem;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.categoryIcon {
+  color: var(--neon-green);
+  font-size: 1rem;
+}
+
+.categoryName {
+  color: var(--neon-cyan);
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.skillsList {
+  padding-left: 1.5rem;
+}
+
+.skillItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.skillBullet {
+  color: var(--neon-green);
+  font-size: 0.8rem;
+}
+
+.skillText {
+  color: #e0e0e0;
+}
+
+/* Personal Container */
+.personalContainer {
+  margin: 1rem 0;
+  padding: 1.5rem;
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  border-radius: 10px;
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.personalHeader {
+  color: var(--neon-cyan);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.personalItem {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+  align-items: center;
+}
+
+.personalKey {
+  color: var(--neon-green);
+  font-weight: bold;
+  min-width: 120px;
+}
+
+.personalValue {
+  color: #e0e0e0;
+}
+
+/* Education Container */
+.educationContainer {
+  margin: 1rem 0;
+  padding: 1.5rem;
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  border-radius: 10px;
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.educationHeader {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.educationMain {
+  margin-bottom: 1.5rem;
+}
+
+.degreeInfo {
+  color: var(--neon-cyan);
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.institutionInfo {
+  color: var(--neon-green);
+  margin-bottom: 0.3rem;
+}
+
+.durationInfo {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+}
+
+.highlightsSection {
+  border-top: 1px solid rgba(255, 215, 0, 0.3);
+  padding-top: 1rem;
+}
+
+.highlightsHeader {
+  color: #ffd700;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlightBullet {
+  color: #ffd700;
+}
+
+.highlightText {
+  color: #e0e0e0;
+}
+
+/* Contact Container */
+.contactContainer {
+  margin: 1rem 0;
+  padding: 1.5rem;
+  border: 2px solid rgba(255, 105, 180, 0.4);
+  border-radius: 10px;
+  background: rgba(255, 105, 180, 0.05);
+}
+
+.contactHeader {
+  color: #ff69b4;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.contactIcon {
+  color: #ff69b4;
+  font-size: 1.1rem;
+}
+
+.contactKey {
+  color: var(--neon-green);
+  font-weight: bold;
+  min-width: 100px;
+}
+
+.contactValue {
+  color: #e0e0e0;
+}
+
+/* Certifications Container */
+.certificationsContainer {
+  margin: 1rem 0;
+  padding: 1.5rem;
+  border: 2px solid rgba(255, 165, 0, 0.4);
+  border-radius: 10px;
+  background: rgba(255, 165, 0, 0.05);
+}
+
+.certificationsHeader {
+  color: #ffa500;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.certificationItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.certBadge {
+  color: #ffa500;
+  font-size: 1.1rem;
+}
+
+.certText {
+  color: #e0e0e0;
+}
+
+/* Projects Container */
+.projectsContainer {
+  margin: 1rem 0;
+  padding: 1.5rem;
+  border: 2px solid rgba(138, 43, 226, 0.4);
+  border-radius: 10px;
+  background: rgba(138, 43, 226, 0.05);
+}
+
+.projectsHeader {
+  color: #8a2be2;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.projectItem {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-left: 3px solid #8a2be2;
+  background: rgba(138, 43, 226, 0.1);
+  border-radius: 0 8px 8px 0;
+}
+
+.projectTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--neon-cyan);
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.projectIcon {
+  color: #8a2be2;
+}
+
+.projectDescription {
+  color: #e0e0e0;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.projectImpact {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.impactLabel {
+  color: var(--neon-green);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.impactText {
+  color: #e0e0e0;
+  font-style: italic;
+}
+
+/* Experience Container */
+.experienceContainer {
+  margin: 1rem 0;
+  padding: 1.5rem;
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  border-radius: 10px;
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.experienceHeader {
+  color: var(--neon-cyan);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.experienceItem {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(0, 255, 255, 0.03);
+}
+
+.companyRole {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--neon-cyan);
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.companyIcon {
+  color: var(--neon-green);
+}
+
+.period {
+  color: var(--neon-green);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.achievementsSection {
+  padding-left: 1rem;
+}
+
+.achievement {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.achievementBullet {
+  color: var(--neon-green);
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.achievementText {
+  color: #d0d0d0;
+  line-height: 1.4;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .terminalContainer {
