@@ -17,91 +17,105 @@ const workExperiences: WorkExperience[] = [
   {
     id: 1,
     company: "Grant Thornton Advisors LLC",
-    position: "Security Engineer",
-    duration: "2023 – Present",
-    location: "Chicago, IL",
+    position: "Risk Advisory Associate – Cyber Defense",
+    duration: "July 2024 – Present",
+    location: "Kolkata, India",
     description:
-      "Building resilient, automated, and intelligence-driven defense systems for enterprise clients.",
+      "Delivering enterprise-grade cyber defense solutions through SIEM engineering, threat automation, and AI-driven security analytics across global client environments.",
     technologies: [
-      "Azure Sentinel",
-      "CrowdStrike",
-      "Python",
+      "Exabeam (EQL)",
+      "Microsoft Sentinel (KQL)",
+      "CrowdStrike Falcon",
+      "Azure Logic Apps",
+      "Microsoft Purview",
       "PowerShell",
-      "SIEM",
+      "Python"
     ],
     achievements: [
-      "Developed custom EQL/KQL rules reducing false positives by 25%",
-      "Led real-time remediation under 1-hour SLA across multiple sectors",
-      "Built automated threat-hunting workflows cutting manual effort by 95%",
+      "Triaged 20–30+ daily alerts across healthcare, finance, and energy sectors, cutting false positives by 25% via IOC-based investigations.",
+      "Developed custom EQL correlation rules in Exabeam to detect zero-day exploits, reducing undetected attack vectors across client environments.",
+      "Automated Microsoft Sentinel threat hunts using Azure Logic Apps, slashing query execution and reporting time by 95%.",
+      "Led 10+ weekly threat hunts using Exabeam, extracting IOCs/TTPs from OSINT and remediating endpoint threats within 1-hour SLA.",
+      "Assessed enterprise LLMs using Moonshot AI toolkit to identify bias and hallucination, strengthening trustworthy AI deployment.",
+      "Tested Azure OpenAI against OWASP LLM vulnerabilities, aligning AI controls with EU AI Act compliance to mitigate data leakage risks."
     ],
     image: "/src/assets/work-ex/grant-thornton.png",
   },
   {
     id: 2,
     company: "Caravel Labs",
-    position: "Cybersecurity Research Intern",
-    duration: "2022",
-    location: "Remote",
+    position: "Consulting Engineer Intern",
+    duration: "June 2023 – August 2023",
+    location: "Seattle, WA (Remote)",
     description:
-      "Worked on privacy-preserving ML systems and secure architecture audits.",
+      "Engineered secure and high-performance front-end systems for an educational technology initiative focused on social impact and accessibility.",
     technologies: [
-      "Machine Learning",
-      "Privacy Engineering",
-      "Security Audits",
-      "Python",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Azure",
+      "Cosmos DB",
+      "Figma"
     ],
     achievements: [
-      "Developed privacy-preserving ML algorithms",
-      "Conducted secure code and architecture reviews",
-      "Published research on secure ML systems",
+      "Transformed Figma wireframes into a responsive React front-end, achieving 30% faster development through reusable components.",
+      "Implemented MVVM architecture to enhance application security and integration, reducing API response time by 50%.",
+      "Designed database schema to manage 7,000+ book records and 300+ active users, ensuring reliability and scalability.",
+      "Developed an AI-based recommendation system using regression analysis with 92% accuracy to personalize content delivery."
     ],
     image: "/src/assets/work-ex/caravel-labs.png",
   },
   {
     id: 3,
-    company: "Centre for Development of Advanced Computing (CDAC)",
-    position: "Research Intern – Cyber Forensics",
-    duration: "2021",
-    location: "Pune, India",
+    company: "Centre for Development of Advanced Computing (C-DAC)",
+    position: "Machine Learning Intern",
+    duration: "April 2023 – July 2023",
+    location: "Kolkata, India",
     description:
-      "Developed automation tools for forensic data analysis and malware detection.",
+      "Built scalable machine learning solutions and cloud-based applications for intelligent image analysis and quality assessment systems.",
     technologies: [
-      "Digital Forensics",
-      "Malware Analysis",
-      "Automation",
       "Python",
-      "Linux",
+      "Django",
+      "TensorFlow",
+      "PyTorch",
+      "AWS EC2",
+      "AWS S3",
+      "Nginx"
     ],
     achievements: [
-      "Built automated forensic analysis tools",
-      "Improved malware detection accuracy by 30%",
-      "Streamlined forensic investigation processes",
+      "Developed and deployed a Django web app on AWS (EC2, S3) for real-time maize grain image analysis and classification.",
+      "Annotated and trained 2,000+ labeled images with RoboFlow, achieving 96% model confidence using YOLOv8 and Detectron2.",
+      "Optimized cloud architecture for scalability and fault tolerance, ensuring uninterrupted uptime under high traffic.",
+      "Benchmarked multiple segmentation frameworks (YOLOv8, Detectron2, Faster R-CNN) to maximize accuracy across 6 grain classes."
     ],
     image: "/src/assets/work-ex/cdac.png",
   },
   {
     id: 4,
-    company: "IIT Kharagpur",
-    position: "Research Assistant",
-    duration: "2020",
+    company: "Indian Institute of Technology (IIT) Kharagpur",
+    position: "Research Intern – Digital Microfluidics",
+    duration: "December 2022 – February 2023",
     location: "Kharagpur, India",
     description:
-      "Worked on AI-driven network intrusion detection models under academic supervision.",
+      "Conducted algorithmic and simulation-based research in digital microfluidics, focusing on efficient fluid control using computational and hardware modeling.",
     technologies: [
-      "AI/ML",
-      "Network Security",
-      "Intrusion Detection",
-      "TensorFlow",
+      "C",
       "Python",
+      "NetworkX",
+      "Matplotlib",
+      "Arduino",
+      "Autodesk Fusion 360"
     ],
     achievements: [
-      "Developed AI-based intrusion detection system",
-      "Achieved 95% accuracy in threat detection",
-      "Co-authored research paper on network security",
+      "Developed C algorithms for electro-wetting control, reducing single-target concentration generation time by 30%.",
+      "Implemented Kamada–Kawai graph layout using NetworkX to model solution mixing and splitting behaviors in microfluidic systems.",
+      "Designed and simulated a 3D hexagonal mixer prototype in Autodesk Fusion 360, validated via Arduino-based hardware testing."
     ],
     image: "/src/assets/work-ex/iit-kgp.png",
-    },
+  },
 ];
+
+
 
 const WorkExperience: React.FC = () => {
   const [selectedWork, setSelectedWork] = useState<WorkExperience | null>(null);
