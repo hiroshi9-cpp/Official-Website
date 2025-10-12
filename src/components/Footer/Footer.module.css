@@ -97,6 +97,16 @@
   z-index: 2;
 }
 
+.copyrightText {
+  font-size: 0.8rem;
+  color: #c9e8ff;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 5px rgba(201, 232, 255, 0.3);
+  animation: textFlicker 10s linear infinite;
+}
+
 .floatingBinary {
   position: absolute;
   font-family: 'Courier New', monospace;

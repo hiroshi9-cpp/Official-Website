@@ -27,6 +27,9 @@ const Footer = () => {
 
       {/* Center section */}
       <div className={styles.centerSection}>
+        <span className={styles.copyrightText}>
+          Designed & Developed by Himon Sarkar @2025
+        </span>
       </div>
 
       {/* Right section - Time & Build */}
