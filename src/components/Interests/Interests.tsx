@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./Interests.module.css";
 
 interface Interest {
@@ -66,15 +66,26 @@ const Interests: React.FC = () => {
   const [isAutoRotating, setIsAutoRotating] = useState(true);
   const [selectedInterest, setSelectedInterest] = useState<Interest | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (isAutoRotating) {
-      const interval = setInterval(() => {
-        handleNext();
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % interests.length);
       }, 2500);
-      return () => clearInterval(interval);
+    } else {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
     }
-  }, [isAutoRotating, currentIndex]);
+    
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isAutoRotating]);
 
   const handleNext = () => {
     if (isTransitioning) return;
