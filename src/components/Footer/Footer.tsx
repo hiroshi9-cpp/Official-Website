@@ -39,7 +39,11 @@ const Footer = () => {
         </span>
         <div className={styles.separator}></div>
         <span className={styles.buildText}>
-          BUILD: {Math.random().toString(36).substr(2, 6).toUpperCase()}
+          {currentTime.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric' 
+          })}
         </span>
       </div>
     </footer>
