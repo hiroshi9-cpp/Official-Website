@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Hero.module.css";
 import { Typewriter } from "react-simple-typewriter";
 import bgVideo from "../../assets/hero-bg.mp4"; 
 
 const Hero: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const [currentText, setCurrentText] = useState("Hi, I'm Himon");
+  const texts = ["Hi, I'm Himon", "Welcome"];
 
   useEffect(() => {
   let mounted = true;
@@ -21,9 +23,12 @@ const Hero: React.FC = () => {
       const cyanHue = 150 + Math.random() * 60; // cyan to blue range
       el.style.setProperty("--hue", `${cyanHue}deg`);
 
-      // apply glitch + sweep
+      // apply glitch + sweep and alternate text
       el.classList.add(styles.glitch);
       el.classList.add(styles.sweepActive || "");
+      
+      // Alternate text during glitch
+      setCurrentText(prev => prev === texts[0] ? texts[1] : texts[0]);
 
       // quick secondary burst (optional)
       setTimeout(() => {
@@ -65,12 +70,12 @@ const Hero: React.FC = () => {
         <div className="flex flex-col items-center space-y-6">
           <h1
             ref={titleRef}
-            data-text="Hi, I'm Himon"
+            data-text={currentText}
             className={`${styles.heroTitle} ${styles.titleAnimated}`}
             style={{ fontSize: "clamp(3rem, 10vw, 20rem)" }}
           >
             {/* visible text */}
-            Hi, I'm Himon
+            {currentText}
             {/* sweep overlay element (animated via CSS when .sweepActive present) */}
             <span className={styles.sweepOverlay} aria-hidden="true" />
           </h1>
