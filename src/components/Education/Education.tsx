@@ -15,7 +15,7 @@ const educationJourney = [
     period: "2020 – 2024",
     story:
       "Studied hard, partied harder. Had some great professors",
-    highlight: "B.Tech Computer Science & Engineering – GPA 9.44/10",
+    highlight: "B.Tech Computer Science & Engineering – DGPA 9.44/10",
     image: "/src/assets/education/college.jpg"
   },
   {
@@ -149,7 +149,10 @@ const Education: React.FC = () => {
                         e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMjIyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzAwZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkVkdWNhdGlvbiBNZW1vcnk8L3RleHQ+PC9zdmc+';
                       }}
                     />
-                    <div className={styles.cardOverlay}>
+                  </div>
+                  
+                  <div className={styles.cardTextArea}>
+                    <div className={styles.cardTextBackground}>
                       <h4 className={styles.cardTitle}>{phase.phase}</h4>
                       <span className={styles.cardPeriod}>{phase.period}</span>
                     </div>
