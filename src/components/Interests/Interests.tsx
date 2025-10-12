@@ -66,13 +66,13 @@ const Interests: React.FC = () => {
   const [isAutoRotating, setIsAutoRotating] = useState(true);
   const [selectedInterest, setSelectedInterest] = useState<Interest | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (isAutoRotating) {
       intervalRef.current = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % interests.length);
-      }, 2500);
+      }, 4000);
     } else {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -116,6 +116,7 @@ const Interests: React.FC = () => {
 
   const handleCloseModal = () => {
     setSelectedInterest(null);
+    setIsAutoRotating(true);
   };
 
   const getCardPosition = (index: number) => {
