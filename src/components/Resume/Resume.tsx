@@ -347,6 +347,13 @@ const Resume: React.FC = () => {
                 <span className={styles.projectIcon}>⚡</span>
                 {project.title}
               </div>
+              <div className={styles.projectPeriod}>📅 {project.period}</div>
+              <div className={styles.projectLink}>
+                <span className={styles.linkIcon}>🔗</span>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.linkText}>
+                  {project.link}
+                </a>
+              </div>
               <div className={styles.projectDescription}>{project.description}</div>
               <div className={styles.projectImpact}>
                 <span className={styles.impactLabel}>IMPACT:</span>

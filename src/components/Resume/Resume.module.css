@@ -585,6 +585,34 @@
   font-style: italic;
 }
 
+.projectPeriod {
+  color: var(--neon-green);
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.projectLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.linkIcon {
+  color: #8a2be2;
+}
+
+.linkText {
+  color: var(--neon-cyan);
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.linkText:hover {
+  color: var(--neon-green);
+  text-shadow: 0 0 5px var(--neon-green);
+}
+
 /* Experience Container */
 .experienceContainer {
   margin: 1rem 0;
