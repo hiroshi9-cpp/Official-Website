@@ -259,16 +259,6 @@ const Interests: React.FC = () => {
             <div className={styles.modalContent}>
               <h3 className={styles.modalTitle}>{selectedInterest.title}</h3>
               <p className={styles.modalDetails}>{selectedInterest.details}</p>
-              <div className={styles.modalSkills}>
-                <h4>Key Areas</h4>
-                <div className={styles.skillTags}>
-                  {selectedInterest.skills.map((skill, index) => (
-                    <span key={index} className={styles.skillTag}>
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
             
             <div className={styles.modalBorder}></div>
