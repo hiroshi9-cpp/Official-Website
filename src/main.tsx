@@ -38,6 +38,7 @@ import Resume from "./components/Resume/Resume.tsx";
 import Education from "./components/Education/Education.tsx";
 import Interests from "./components/Interests/Interests.tsx";
 import Contact from "./components/Contact/Contact.tsx";
+import Footer from "./components/Footer/Footer.tsx";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -145,5 +146,6 @@ createRoot(document.getElementById('root')!).render(
         <Contact />
       </section>
     </main>
+    <Footer />
   </StrictMode>,
 );
