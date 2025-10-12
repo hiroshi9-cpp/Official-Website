@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import emailjs from '@emailjs/browser';
 import styles from "./Contact.module.css";
 
 const Contact: React.FC = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    emailjs.init('nb4cF7jTRDQkC2Cbd');
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -13,12 +18,26 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission delay
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    try {
+      const result = await emailjs.send(
+        'service_o2ets9n',
+        'template_m9yq948',
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message
+        }
+      );
+      
+      console.log('Email sent successfully:', result);
+      alert("Message transmitted successfully!");
+      setForm({ name: "", email: "", message: "" });
+    } catch (error: any) {
+      console.error('Email send failed:', error);
+      const errorMessage = error?.text || error?.message || JSON.stringify(error);
+      alert(`Failed to send message: ${errorMessage}`);
+    }
     
-    console.log(form);
-    alert("Message transmitted successfully!");
-    setForm({ name: "", email: "", message: "" });
     setIsSubmitting(false);
   };
 
@@ -33,7 +52,7 @@ const Contact: React.FC = () => {
       </div>
       
       <div className={styles.contentContainer}>
-        <form onSubmit={handleSubmit} className={styles.contactForm}>
+        <form onSubmit={handleSubmit} className={styles.contactForm} name="contact" method="POST" data-netlify="true">
           <div className={styles.inputGroup}>
             <input 
               type="text" 
@@ -97,16 +116,16 @@ const Contact: React.FC = () => {
         
         <div className={styles.socialLinks}>
           <a 
-            href="mailto:your.email@example.com" 
+            href="mailto:himon.sarkar.us@gmail.com" 
             className={styles.emailLink}
           >
             <span className={styles.linkIcon}>📧</span>
-            <span className={styles.linkText}>your.email@example.com</span>
+            <span className={styles.linkText}>himon.sarkar.us@gmail.com</span>
             <div className={styles.linkGlow}></div>
           </a>
           
           <a 
-            href="https://linkedin.com/in/yourprofile" 
+            href="https://www.linkedin.com/in/himon9/" 
             target="_blank" 
             rel="noopener noreferrer"
             className={styles.linkedinLink}

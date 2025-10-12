@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Hero.module.css";
 import { Typewriter } from "react-simple-typewriter";
-import bgVideo from "../../assets/hero-bg.mp4"; 
 
 const Hero: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null);

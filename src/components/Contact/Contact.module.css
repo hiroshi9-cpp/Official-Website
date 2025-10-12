@@ -377,10 +377,11 @@
 .emailLink {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
   padding: 1rem 2rem;
   background: rgba(0, 255, 255, 0.1);
-  border: 2px solid rgba(0, 255, 255, 0.4);
+  border: 2px solid #00ffff;
   border-radius: 12px;
   color: #00ffff;
   text-decoration: none;
@@ -388,6 +389,8 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  backdrop-filter: blur(10px);
 }
 
 .emailLink:hover {
@@ -405,10 +408,11 @@
 .linkedinLink {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
   padding: 1rem 2rem;
   background: rgba(0, 100, 200, 0.1);
-  border: 2px solid rgba(0, 100, 200, 0.4);
+  border: 2px solid #0066cc;
   border-radius: 12px;
   color: #0066cc;
   text-decoration: none;
@@ -416,6 +420,8 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  backdrop-filter: blur(10px);
 }
 
 .linkedinLink:hover {
