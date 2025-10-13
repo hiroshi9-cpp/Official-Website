@@ -54,7 +54,7 @@ const interests: Interest[] = [
     id: 6,
     title: "Cycling & Outdoor Challenges",
     description: "Pedaling through passion and perseverance 🚴‍♂️",
-    images: ["/src/assets/Interests/cycling.svg"],
+    images: ["/src/assets/Interests/cycling/cycle1.jpg", "/src/assets/Interests/cycling/cycle2.jpg", "/src/assets/Interests/cycling/cycle3.jpg"],
     details:
       "I enjoy long cycling sessions and even compete occasionally. It’s my way to stay active, challenge myself, and enjoy the great outdoors.",
   },
