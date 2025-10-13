@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import Education from './components/Education/Education';
 import WorkExperience from './components/WorkExperience/WorkExperience';
-import Interests from './components/IDeprecated2/Interests';
+import Interests from './components/Interests/Interests';
 import Resume from './components/Resume/Resume';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
