@@ -5,66 +5,98 @@ interface Interest {
   id: number;
   title: string;
   description: string;
-  image: string;
+  images: string[];
   details: string;
-  skills: string[];
 }
 
 const interests: Interest[] = [
   {
     id: 1,
-    title: "Cybersecurity",
-    description: "Protecting digital frontiers with advanced threat detection",
-    image: "/src/assets/Interests/cybersecurity.svg",
-    details: "Passionate about ethical hacking, penetration testing, and building secure systems. Currently working with SIEM tools and threat hunting.",
-    skills: ["Penetration Testing", "SIEM", "Threat Hunting", "Incident Response"]
+    title: "Scuba Diving & Ocean Adventures",
+    description: "Exploring the vibrant world beneath the waves 🌊",
+    images: ["/src/assets/Interests/scuba.svg", "/src/assets/Interests/scuba2.svg", "/src/assets/Interests/scuba3.svg"],
+    details:
+      "Discovered my love for the ocean while scuba diving in the Andamans — an unforgettable underwater experience. I also enjoy snorkeling and swimming, constantly drawn to the beauty and calm of the sea.",
   },
   {
     id: 2,
-    title: "AI & Machine Learning",
-    description: "Building intelligent systems that learn and adapt",
-    image: "/src/assets/Interests/ai-ml.svg",
-    details: "Exploring deep learning, computer vision, and natural language processing to create innovative AI solutions.",
-    skills: ["Deep Learning", "Computer Vision", "NLP", "TensorFlow"]
+    title: "Fitness & Strength Training",
+    description: "Building discipline, one rep at a time 💪",
+    images: ["/src/assets/Interests/fitness.svg", "/src/assets/Interests/fitness2.svg"],
+    details:
+      "A daily gym-goer passionate about strength and endurance training. I can do 40 pushups and 15 pullups in a single set, and I’m always chasing progress — physically and mentally.",
   },
   {
     id: 3,
-    title: "Space Exploration",
-    description: "Fascinated by the cosmos and space technology",
-    image: "/src/assets/Interests/space.svg",
-    details: "Following space missions, studying astrophysics, and dreaming of contributing to space technology development.",
-    skills: ["Astrophysics", "Satellite Tech", "Space Missions", "Astronomy"]
+    title: "Music & Guitar",
+    description: "Strumming stories through six strings 🎸",
+    images: ["/src/assets/Interests/music.svg", "/src/assets/Interests/music2.svg", "/src/assets/Interests/music3.svg"],
+    details:
+      "I’m a guitarist with a Fender Strat at home. Deeply inspired by legends like Jimi Hendrix, Pink Floyd, John Mayer, and Jimmy Page. Music is my escape — from classic rock to Linkin Park and The Beatles.",
   },
   {
     id: 4,
-    title: "Photography",
-    description: "Capturing moments through the lens of creativity",
-    image: "/src/assets/Interests/photography.svg",
-    details: "Specializing in landscape and street photography, with a focus on storytelling through visual narratives.",
-    skills: ["Landscape", "Street Photography", "Photo Editing", "Visual Storytelling"]
+    title: "Travel & Culture",
+    description: "Discovering new places, people, and cuisines 🌍",
+    images: ["/src/assets/Interests/travel.svg"],
+    details:
+      "I love exploring new destinations, meeting diverse people, and tasting local foods. Every journey teaches me something new about the world and myself.",
   },
   {
     id: 5,
-    title: "Gaming",
-    description: "Exploring virtual worlds and game development",
-    image: "/src/assets/Interests/gaming.svg",
-    details: "Passionate gamer and aspiring game developer, interested in both playing and creating immersive experiences.",
-    skills: ["Game Development", "Unity", "Game Design", "Virtual Reality"]
+    title: "Driving & Automobiles",
+    description: "Finding freedom on open roads 🚗",
+    images: ["/src/assets/Interests/driving.svg"],
+    details:
+      "I own a Hyundai i10 — my first car, bought from my first salary. It’s more than just a ride; it’s a symbol of independence and countless memories of late-night drives and road trips.",
   },
   {
     id: 6,
-    title: "Digital Art",
-    description: "Creating digital masterpieces with modern tools",
-    image: "/src/assets/Interests/digital-art.svg",
-    details: "Combining technology and creativity to produce stunning digital artwork and animations.",
-    skills: ["Digital Painting", "3D Modeling", "Animation", "Graphic Design"]
-  }
+    title: "Cycling & Outdoor Challenges",
+    description: "Pedaling through passion and perseverance 🚴‍♂️",
+    images: ["/src/assets/Interests/cycling.svg"],
+    details:
+      "I enjoy long cycling sessions and even compete occasionally. It’s my way to stay active, challenge myself, and enjoy the great outdoors.",
+  },
+  {
+    id: 7,
+    title: "Gaming",
+    description: "Immersing in digital adventures 🎮",
+    images: ["/src/assets/Interests/gaming.svg"],
+    details:
+      "Gaming fuels my competitive spirit and creativity. Favorites include GTA V, Splinter Cell: Blacklist, Assassin’s Creed: Black Flag, and FIFA 14.",
+  },
+  {
+    id: 8,
+    title: "AI & Tech Innovation",
+    description: "Building the future, one line of code at a time 🤖",
+    images: ["/src/assets/Interests/ai.svg"],
+    details:
+      "Fascinated by AI, coding, and emerging tech. I love experimenting with new AI tools, building small projects, and exploring how technology can shape smarter, safer systems.",
+  },
+  {
+    id: 9,
+    title: "Photography",
+    description: "Capturing emotions through frames 📸",
+    images: ["/src/assets/Interests/photography.svg"],
+    details:
+      "Photography lets me express my perspective — from street shots to landscapes. I enjoy framing moments that tell stories without words.",
+  },
+  {
+    id: 10,
+    title: "Social Life & Parties",
+    description: "Connecting, celebrating, and living the moment 🎉",
+    images: ["/src/assets/Interests/party.svg"],
+    details:
+      "I’m a social animal who loves good company, music, and parties. During my time at Grant Thornton, I’ve made some unforgettable memories with amazing people.",
+  },
 ];
 
 const Interests: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoRotating, setIsAutoRotating] = useState(true);
   const [selectedInterest, setSelectedInterest] = useState<Interest | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const intervalRef = useRef<number | null>(null);
 
@@ -129,7 +161,24 @@ const Interests: React.FC = () => {
 
   const handleCloseModal = () => {
     setSelectedInterest(null);
+    setCurrentImageIndex(0);
     setIsAutoRotating(true);
+  };
+
+  const handlePrevImage = () => {
+    if (selectedInterest) {
+      setCurrentImageIndex((prev) => 
+        prev === 0 ? selectedInterest.images.length - 1 : prev - 1
+      );
+    }
+  };
+
+  const handleNextImage = () => {
+    if (selectedInterest) {
+      setCurrentImageIndex((prev) => 
+        (prev + 1) % selectedInterest.images.length
+      );
+    }
   };
 
   const getCardPosition = (index: number) => {
@@ -179,7 +228,7 @@ const Interests: React.FC = () => {
             >
               <div className={styles.cardInner}>
                 <div className={styles.cardImage}>
-                  <img src={interest.image} alt={interest.title} />
+                  <img src={interest.images[0]} alt={interest.title} />
                   <div className={styles.cardGlow}></div>
                   <div className={styles.cardParticles}>
                     <div className={styles.particle}></div>
@@ -242,10 +291,29 @@ const Interests: React.FC = () => {
             
             <div className={styles.modalImageContainer}>
               <img 
-                src={selectedInterest.image} 
+                src={selectedInterest.images[currentImageIndex]} 
                 alt={selectedInterest.title}
                 className={styles.modalImage}
               />
+              {selectedInterest.images.length > 1 && (
+                <>
+                  <button 
+                    className={styles.imageNavButton + ' ' + styles.prevButton}
+                    onClick={handlePrevImage}
+                  >
+                    ←
+                  </button>
+                  <button 
+                    className={styles.imageNavButton + ' ' + styles.nextButton}
+                    onClick={handleNextImage}
+                  >
+                    →
+                  </button>
+                  <div className={styles.imageCounter}>
+                    {currentImageIndex + 1} / {selectedInterest.images.length}
+                  </div>
+                </>
+              )}
               <div className={styles.modalGlow}></div>
               <div className={styles.modalParticles}>
                 <div className={styles.modalParticle}></div>

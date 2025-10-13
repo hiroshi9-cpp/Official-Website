@@ -45,7 +45,7 @@ const workExperiences: WorkExperience[] = [
     id: 2,
     company: "Caravel Labs",
     position: "Consulting Engineer Intern",
-    duration: "June 2023 – August 2023",
+    duration: "June 2023 – Aug 2023",
     location: "Seattle, WA (Remote)",
     description:
       "Engineered secure and high-performance front-end systems for an educational technology initiative focused on social impact and accessibility.",
@@ -94,7 +94,7 @@ const workExperiences: WorkExperience[] = [
     id: 4,
     company: "Indian Institute of Technology (IIT) Kharagpur",
     position: "Research Intern – Digital Microfluidics",
-    duration: "December 2022 – February 2023",
+    duration: "Dec 2022 – Feb 2023",
     location: "Kharagpur, India",
     description:
       "Conducted algorithmic and simulation-based research in digital microfluidics, focusing on efficient fluid control using computational and hardware modeling.",
