@@ -6,6 +6,9 @@
    - scrollbar + body defaults
    - small utilities (kept minimal)
    ========================= */
+html {
+  zoom: 0.8;
+}
 
 /* Tailwind Directives */
 @import 'tailwindcss/base';
