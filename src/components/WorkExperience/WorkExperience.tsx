@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./WorkExperience.module.css";
 
 interface WorkExperience {
@@ -115,9 +115,7 @@ const workExperiences: WorkExperience[] = [
   },
 ];
 
-
-
-const WorkExperience: React.FC = () => {
+const WorkExperience = () => {
   const [selectedWork, setSelectedWork] = useState<WorkExperience | null>(null);
   const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
 

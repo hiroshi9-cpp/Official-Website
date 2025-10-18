@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import emailjs from '@emailjs/browser';
 import styles from "./Contact.module.css";
 
-const Contact: React.FC = () => {
+const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -134,25 +134,12 @@ const Contact: React.FC = () => {
         </div>
       </div>
       
-      {/* Background Animations */}
       <div className={styles.matrixRain}>
-        {Array.from({ length: 20 }, (_, i) => (
-          <div key={i} className={styles.matrixColumn} style={{ left: `${i * 5}%`, animationDelay: `${i * 0.5}s` }}>
-            <div className={styles.matrixChar}>0</div>
-            <div className={styles.matrixChar}>1</div>
-            <div className={styles.matrixChar}>0</div>
-            <div className={styles.matrixChar}>1</div>
+        {[...Array(10)].map((_, i) => (
+          <div key={i} className={styles.matrixColumn} style={{ left: `${i * 10}%`, animationDelay: `${i * 0.5}s` }}>
+            <div className={styles.matrixChar}>{i % 2}</div>
           </div>
         ))}
-      </div>
-      
-      <div className={styles.circuitBoard}>
-        <div className={styles.circuitLine} style={{ top: '20%', left: '10%', width: '30%' }}></div>
-        <div className={styles.circuitLine} style={{ top: '60%', right: '15%', width: '25%' }}></div>
-        <div className={styles.circuitLine} style={{ bottom: '30%', left: '20%', width: '40%' }}></div>
-        <div className={styles.circuitNode} style={{ top: '20%', left: '40%' }}></div>
-        <div className={styles.circuitNode} style={{ top: '60%', right: '15%' }}></div>
-        <div className={styles.circuitNode} style={{ bottom: '30%', left: '60%' }}></div>
       </div>
     </section>
   );

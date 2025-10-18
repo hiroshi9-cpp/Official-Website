@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Education.module.css";
 
 const educationJourney = [
@@ -29,11 +29,9 @@ const educationJourney = [
 ];
 
 
-const Education: React.FC = () => {
+const Education = () => {
   const [currentPhase, setCurrentPhase] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [cardStack, setCardStack] = useState(educationJourney);
-  const [swipedCards, setSwipedCards] = useState<number[]>([]);
   const [selectedImage, setSelectedImage] = useState<typeof educationJourney[0] | null>(null);
 
   useEffect(() => {
@@ -45,12 +43,7 @@ const Education: React.FC = () => {
     }
   }, [isAutoPlaying]);
 
-  const handleCardSwipe = (direction: 'left' | 'right', index: number) => {
-    setSwipedCards(prev => [...prev, index]);
-    if (direction === 'right' && currentPhase < educationJourney.length - 1) {
-      setCurrentPhase(prev => prev + 1);
-    }
-  };
+
 
   const handlePhaseClick = (index: number) => {
     setCurrentPhase(index);

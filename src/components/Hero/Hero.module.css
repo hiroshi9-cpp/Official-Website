@@ -179,10 +179,6 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* =========================
-   Hacker Terminal Teleprompter
-   ========================= */
-
 .teleprompter {
   position: absolute;
   top: 70vh;
@@ -193,26 +189,15 @@
   max-width: 800px;
   overflow: hidden;
   font-size: 1.5rem;
-  font-weight: 500;
   color: var(--cyber-blue);
-  background: rgba(0, 5, 10, 0.61);
+  background: rgba(0, 5, 10, 0.6);
   border: 1px solid rgba(0, 255, 255, 0.2);
   border-radius: 8px;
-  box-shadow:
-    0 0 10px rgba(0, 255, 255, 0.2),
-    inset 0 0 15px rgba(0, 255, 255, 0.08);
-  text-shadow:
-    0 0 6px rgba(0, 255, 255, 0.9),
-    0 0 14px rgba(0, 255, 255, 0.5),
-    0 0 24px rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
   font-family: "Courier New", monospace;
-  letter-spacing: 0.05em;
-  isolation: isolate;
 }
 
-/* =========================
-   Scrolling text layer
-   ========================= */
 .teleprompterText {
   display: flex;
   flex-direction: column;
@@ -221,126 +206,22 @@
   animation: roll 50s linear infinite;
   animation-delay: 3s;
   line-height: 1.5;
-  filter: brightness(1.2) contrast(1.1);
-  will-change: transform;
 }
 
-/* Rolling scroll animation */
+.teleprompterText p {
+  margin: 0;
+  color: #00ffff;
+  animation: flicker 3s ease-in-out infinite alternate;
+}
+
 @keyframes roll {
-  0%   { transform: translateY(0); }
+  0% { transform: translateY(0); }
   100% { transform: translateY(-100%); }
 }
 
-/* =========================
-   Hacker terminal glow & flicker
-   ========================= */
-
-/* Add a slight flicker on each line */
-.teleprompterText p {
-  margin: 0;
-  padding: 0;
-  color: #00ffff;
-  animation: flicker 2.8s ease-in-out infinite alternate;
-  text-shadow:
-    0 0 8px rgba(0,255,255,1),
-    0 0 16px rgba(0,255,255,0.8),
-    0 0 24px rgba(0,255,255,0.6),
-    0 0 32px rgba(0,255,255,0.4);
-  filter: brightness(1.4) contrast(1.2);
-}
-
 @keyframes flicker {
-  0%, 100% { opacity: 1; filter: brightness(1.05); }
-  45% { opacity: 0.9; filter: brightness(0.85); }
-  48% { opacity: 0.6; filter: brightness(0.75); }
-  50% { opacity: 1; filter: brightness(1.15); }
-  90% { opacity: 0.95; filter: brightness(1.05); }
-}
-
-/* =========================
-   Scanline + glow overlay
-   ========================= */
-
-/* Subtle horizontal scanlines */
-.teleprompter::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(0, 255, 255, 0.35) 0px,
-    rgba(0, 255, 255, 0.35) 1px,
-    transparent 2px,
-    transparent 4px
-  );
-  mix-blend-mode: screen;
-  opacity: 0.6;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* Soft pulsating glow */
-.teleprompter::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  /* === Combine the holographic grid + radial glow === */
-  background:
-    /* Green holographic grid lines */
-    repeating-linear-gradient(
-      0deg,
-      rgba(0, 255, 100, 0.4) 0px,
-      rgba(0, 255, 100, 0.4) 1px,
-      transparent 2px,
-      transparent 20px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(0, 255, 100, 0.4) 0px,
-      rgba(0, 255, 100, 0.4) 1px,
-      transparent 2px,
-      transparent 20px
-    ),
-    /* Subtle cyan radial glow */
-    radial-gradient(
-      circle at 50% 30%,
-      rgba(0, 255, 255, 0.08) 0%,
-      rgba(0, 255, 255, 0.01) 80%
-    );
-
-  mix-blend-mode: screen;
-  opacity: 0.7;
-  animation:
-    pulse 6s ease-in-out infinite alternate,
-    gridShift 8s linear infinite;
-  z-index: 2;
-  pointer-events: none;
-
-  /* optional smoothness */
-  background-size: 100% 100%;
-  filter: brightness(1.1);
-}
-
-
-@keyframes pulse {
-  0%   { opacity: 0.18; }
-  50%  { opacity: 0.35; }
-  100% { opacity: 0.18; }
-}
-
-@keyframes gridShift {
-  0% { background-position: 0 0, 0 0, 0 0; }
-  100% { background-position: 40px 40px, -40px -40px, 0 0; }
-}
-
-/* =========================
-   Edge fade for smooth scroll
-   ========================= */
-.teleprompter::before,
-.teleprompter::after {
-  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
 }
 
 

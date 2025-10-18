@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import resumePDF from "../../assets/Resume/resume.pdf";
 import styles from "./Resume.module.css";
 
@@ -152,12 +152,10 @@ const resumeData = {
   },
 };
 
-const Resume: React.FC = () => {
-  const [currentSection, setCurrentSection] = useState<string>("");
+const Resume = () => {
   const [isTerminalActive, setIsTerminalActive] = useState(false);
   const [commandHistory, setCommandHistory] = useState<any[]>([]);
   const [currentCommand, setCurrentCommand] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
   const [inputHistory, setInputHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
 

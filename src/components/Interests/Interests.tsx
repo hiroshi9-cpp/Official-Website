@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./Interests.module.css";
 
 interface Interest {
@@ -92,13 +92,12 @@ const interests: Interest[] = [
   },
 ];
 
-const Interests: React.FC = () => {
+const Interests = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoRotating, setIsAutoRotating] = useState(true);
   const [selectedInterest, setSelectedInterest] = useState<Interest | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
   const intervalRef = useRef<number | null>(null);
 
   const restartAutoplay = () => {
@@ -179,32 +178,6 @@ const Interests: React.FC = () => {
       setCurrentImageIndex((prev) => 
         (prev + 1) % selectedInterest.images.length
       );
-    }
-  };
-
-  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = e.currentTarget;
-    setImageDimensions({ width: img.naturalWidth, height: img.naturalHeight });
-  };
-
-  const getModalStyle = () => {
-    if (imageDimensions.width === 0 || imageDimensions.height === 0) {
-      return {};
-    }
-    
-    const aspectRatio = imageDimensions.width / imageDimensions.height;
-    const isLandscape = aspectRatio > 1;
-    
-    if (isLandscape) {
-      return {
-        maxWidth: '80vw',
-        width: 'auto'
-      };
-    } else {
-      return {
-        maxWidth: '50vw',
-        width: 'auto'
-      };
     }
   };
 
@@ -311,7 +284,7 @@ const Interests: React.FC = () => {
 
       {selectedInterest && (
         <div className={styles.modalOverlay} onClick={handleCloseModal}>
-          <div className={styles.modalContainer} style={getModalStyle()} onClick={(e) => e.stopPropagation()}>
+          <div className={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
             <button className={styles.closeButton} onClick={handleCloseModal}>
               ×
             </button>
@@ -321,7 +294,6 @@ const Interests: React.FC = () => {
                 src={selectedInterest.images[currentImageIndex]} 
                 alt={selectedInterest.title}
                 className={styles.modalImage}
-                onLoad={handleImageLoad}
               />
               {selectedInterest.images.length > 1 && (
                 <>
