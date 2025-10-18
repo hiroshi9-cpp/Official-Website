@@ -44,6 +44,7 @@ const SpaceBackground = () => (
   </>
 );
 
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Scrollbar />
