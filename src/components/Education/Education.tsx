@@ -18,14 +18,14 @@ const educationJourney = [
     highlight: "B.Tech Computer Science & Engineering – DGPA 9.44/10",
     image: "/src/assets/education/college.jpg"
   },
-  {
-    phase: "Graduate Aspirant – Georgia Institute of Technology (Planned)",
-    period: "Fall 2026 (Incoming)",
-    story:
-      "Proudly studying in one of the best schools in US",
-    highlight: "MS Cybersecurity – Fall 2026",
-    image: "/src/assets/education/gatech.jpg"
-  }
+  // {
+  //   phase: "Graduate Aspirant – Georgia Institute of Technology (Planned)",
+  //   period: "Fall 2026 (Incoming)",
+  //   story:
+  //     "Proudly studying in one of the best schools in US",
+  //   highlight: "MS Cybersecurity – Fall 2026",
+  //   image: "/src/assets/education/gatech.jpg"
+  // }
 ];
 
 
