@@ -24,12 +24,13 @@ export default defineConfig({
         }
       }
     },
-    terserOptions: {
+    // Cast to any to work around TypeScript type mismatch for terserOptions
+    terserOptions: ( {
       compress: {
         drop_console: true,
         drop_debugger: true
       }
-    }
+    } as any ),
   },
   server: {
     hmr: {

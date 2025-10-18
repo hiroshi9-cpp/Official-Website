@@ -158,6 +158,22 @@ Deployment
   - Netlify: configure build command `npm run build` and publish directory `dist`.
   - GitHub Pages: use a `gh-pages` deploy action or `gh` to push `dist/` to `gh-pages` branch (or configure GitHub Pages to serve `dist/` via a workflow). For GitHub Pages, you may add a CI step to build and push.
 
+  GitHub Pages (this repo)
+
+  This repository includes a GitHub Actions workflow (`.github/workflows/pages.yml`) that builds the site and publishes the `dist/` folder to GitHub Pages automatically on pushes to `master`.
+
+  After you push the repository to GitHub:
+
+  1. Confirm the workflow ran successfully in the Actions tab. It will build the app and upload the `dist/` artifact.
+  2. In the repository Settings → Pages, confirm the site is published (the workflow uses the Pages deployment flow from Actions so no manual branch is required).
+  3. The project page URL will be:
+
+  ```
+  https://<your-username>.github.io/Official-Website/
+  ```
+
+  Replace `<your-username>` with your GitHub username. If you use a different default branch (for example `main`), update the workflow trigger accordingly.
+
 CI/CD
 - Add a GitHub Actions or other CI pipeline to run tests, lint, build, and deploy on push to `main/master` or on tags. Example steps:
   - checkout
