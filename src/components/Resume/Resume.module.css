@@ -122,7 +122,33 @@
   animation: typewriter 0.5s ease-out;
 }
 
-/* (Removed: legacy terminal structure classes not referenced) */
+.terminalObject {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: 3px solid var(--neon-green);
+  background: rgba(0, 255, 136, 0.05);
+  border-radius: 0 8px 8px 0;
+}
+
+.terminalProperty {
+  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.propertyKey {
+  color: var(--neon-green);
+  font-weight: bold;
+  min-width: 100px;
+}
+
+.propertyValue {
+  color: #e0e0e0;
+}
+
+.terminalArray {
+  margin: 1rem 0;
+}
 
 .experienceItem {
   margin-bottom: 1.5rem;
@@ -198,7 +224,34 @@
 }
 
 /* Quick Actions */
-/* (Removed: quick action buttons not used) */
+.quickActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 5;
+  position: relative;
+}
+
+.quickButton {
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid var(--neon-green);
+  color: var(--neon-green);
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.quickButton:hover {
+  background: rgba(0, 255, 136, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
 
 .downloadButton {
   background: rgba(0, 255, 255, 0.1);
@@ -641,6 +694,7 @@
     gap: 0.5rem;
   }
   
+  .quickButton,
   .downloadButton {
     padding: 0.6rem 1rem;
     font-size: 0.8rem;
