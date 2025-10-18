@@ -285,3 +285,23 @@ body {
   90% { opacity: 1; }
   100% { transform: translateY(calc(100vh + 200px)); opacity: 0; }
 }
+
+/* -------------------------------------------------------------------------
+   Safety overrides: prevent accidental global scaling/zoom
+   Some animations in component CSS use scale(...) for small decorative
+   elements. Add explicit rules to ensure no high-level container (html,
+   body, #root, #scroll-container, main) get scaled which can cause the
+   entire site to appear 'zoomed in' in production.
+   These are intentionally specific and use !important so they win over
+   accidental cascade issues.
+   ------------------------------------------------------------------------- */
+html, body, #root, #scroll-container, main, .scroll-snap-container {
+  transform: none !important;
+  -webkit-transform: none !important;
+  -ms-transform: none !important;
+}
+
+/* Ensure no legacy zoom property is applied globally */
+:root {
+  zoom: unset !important;
+}
