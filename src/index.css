@@ -13,10 +13,9 @@
 @import 'tailwindcss/utilities';
 
 /* -------------------------
-   Font (Glitch Goblin .ttf)
-   Place your GlitchGoblin.ttf at:
-     src/assets/fonts/GlitchGoblin.ttf
-   ------------------------- */
+  Font (Glitch Goblin)
+  Include custom font in src/assets/fonts if available
+  ------------------------- */
 @font-face {
   font-family: 'GlitchGoblin';
   src: url('/src/assets/fonts/GlitchGoblin.ttf') format('truetype');

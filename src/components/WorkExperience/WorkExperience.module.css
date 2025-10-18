@@ -408,15 +408,7 @@
   transform: translateY(-2px);
 }
 
-.techMore {
-  background: rgba(0, 255, 136, 0.1);
-  border: 1px solid rgba(0, 255, 136, 0.4);
-  border-radius: 12px;
-  padding: 0.6rem 1rem;
-  font-size: 0.85rem;
-  color: var(--neon-green);
-  font-weight: 600;
-}
+/* (techMore removed) */
 
 /* BACKGROUND GLOW PATTERN */
 .workCard::before {

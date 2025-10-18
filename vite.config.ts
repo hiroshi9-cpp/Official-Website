@@ -20,12 +20,8 @@ export default defineConfig({
         }
       }
     },
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    }
+    // terserOptions removed to avoid TypeScript typing mismatch in Vite config.
+    // If needed, console removal can be added via a compatible plugin.
   },
   server: {
     hmr: {
