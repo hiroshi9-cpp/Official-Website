@@ -319,3 +319,17 @@ html, body, #root, #scroll-container, main, .scroll-snap-container {
 :root {
   zoom: unset !important;
 }
+
+/* Fallback zoom class when browser doesn't support `zoom` style.
+   It uses transform: scale(...) and compensates width so content doesn't
+   overflow horizontally. Applied to <html> by JS as `zoom-80`. */
+html.zoom-80 {
+  transform-origin: 0 0;
+  transform: scale(0.8);
+  width: 125%; /* 1 / 0.8 = 1.25 to compensate scaling */
+}
+
+/* Also ensure body and root fill the scaled area */
+html.zoom-80, html.zoom-80 body, html.zoom-80 #root, html.zoom-80 #scroll-container {
+  min-width: 125%;
+}

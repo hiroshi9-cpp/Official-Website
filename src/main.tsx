@@ -44,6 +44,31 @@ const SpaceBackground = () => (
   </>
 );
 
+// Apply programmatic zoom on load
+function setSiteZoom(scale = 0.8) {
+  try {
+    const rootEl = document.documentElement;
+    // Prefer the non-standard zoom property when available
+    if ('zoom' in rootEl.style) {
+      // set as number string (0.8) or '80%'
+      // Using numeric makes some browsers interpret as scaling factor
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      rootEl.style.zoom = String(scale);
+    } else {
+      // Fallback: add a class that uses transform: scale()
+      const className = `zoom-${Math.round(scale * 100)}`;
+      rootEl.classList.add(className);
+    }
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn('Failed to apply site zoom', err);
+  }
+}
+
+// set the site to 80% zoom on initial load
+setSiteZoom(0.8);
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Scrollbar />
