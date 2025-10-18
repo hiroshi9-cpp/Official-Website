@@ -7,7 +7,17 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    emailjs.init('nb4cF7jTRDQkC2Cbd');
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+    if (publicKey) {
+      emailjs.init(publicKey);
+    } else {
+      // Don't initialize EmailJS without a public key. Log a clear warning for developers.
+      // This keeps secrets out of the repo - put keys in a local `.env` file.
+      // See README.md or .env.example for required vars.
+      // The contact form will be disabled until these are provided.
+      // eslint-disable-next-line no-console
+      console.warn('EmailJS public key (VITE_EMAILJS_PUBLIC_KEY) is not set. Contact form will not send messages.');
+    }
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -18,10 +28,22 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+
+    if (!serviceId || !templateId) {
+      // Missing configuration - abort and notify the user
+      // eslint-disable-next-line no-console
+      console.error('EmailJS service/template IDs are not configured. Set VITE_EMAILJS_SERVICE_ID and VITE_EMAILJS_TEMPLATE_ID in your .env.');
+      alert('Contact form is not configured on this site. Please contact the site owner directly.');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const result = await emailjs.send(
-        'service_o2ets9n',
-        'template_m9yq948',
+        serviceId,
+        templateId,
         {
           from_name: form.name,
           from_email: form.email,

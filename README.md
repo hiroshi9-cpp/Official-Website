@@ -121,6 +121,7 @@ VITE_EMAILJS_SERVICE_ID=service_xxx
 VITE_EMAILJS_TEMPLATE_ID=template_xxx
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
+Create a `.env` file in the project root (or copy from `.env.example`) and add your keys. Never commit your real `.env` file.
 
 Then in code (example pattern):
 ```ts
