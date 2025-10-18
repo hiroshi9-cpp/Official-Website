@@ -2,6 +2,10 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
+  // Use relative base so built assets work when served from a subpath
+  // (e.g., https://<user>.github.io/<repo>/). This avoids absolute
+  // "/assets/..." paths which break when Pages serves from a repo path.
+  base: './',
   plugins: [
     react({
       babel: {
