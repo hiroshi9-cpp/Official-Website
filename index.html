@@ -10,6 +10,13 @@
     <link rel="modulepreload" crossorigin href="./assets/utils-CuFYLJaS.js">
     <link rel="stylesheet" crossorigin href="./assets/index-ZCPCSI2N.css">
   </head>
+  <script>
+    const baseWidth = 1200;
+    const scale = Math.min(window.innerWidth / baseWidth, 1);
+    document.documentElement.style.transform = `scale(${scale})`;
+    document.documentElement.style.transformOrigin = "top left";
+    document.documentElement.style.width = `${100 / scale}%`;
+  </script>
   <body>
     <div id="root"></div>
   </body>
