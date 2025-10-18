@@ -5,18 +5,37 @@
     <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Himon Sarkar</title>
-    <script type="module" crossorigin src="./assets/index-BU4fQ2hM.js"></script>
+    <script type="module" crossorigin src="./assets/index-D8hx0Utk.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/vendor-CxV3TUDM.js">
     <link rel="modulepreload" crossorigin href="./assets/utils-CuFYLJaS.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-ZCPCSI2N.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-D6fo0MeW.css">
   </head>
-  <script>
-    const baseWidth = 1200;
-    const scale = Math.min(window.innerWidth / baseWidth, 1);
+<script>
+  window.addEventListener("load", () => {
+    // Step 1: Measure the natural layout width
+    const baseWidth = document.documentElement.scrollWidth;
+
+    // Step 2: Determine the current viewport width
+    const viewportWidth = window.innerWidth;
+
+    // Step 3: Compute scale ratio (only shrink, never enlarge)
+    const scale = Math.min(viewportWidth / baseWidth, 1);
+
+    // Step 4: Apply scaling
     document.documentElement.style.transform = `scale(${scale})`;
     document.documentElement.style.transformOrigin = "top left";
     document.documentElement.style.width = `${100 / scale}%`;
-  </script>
+
+    // Step 5: Optional — handle resizes dynamically
+    window.addEventListener("resize", () => {
+      const newViewportWidth = window.innerWidth;
+      const newScale = Math.min(newViewportWidth / baseWidth, 1);
+      document.documentElement.style.transform = `scale(${newScale})`;
+      document.documentElement.style.width = `${100 / newScale}%`;
+    });
+  });
+</script>
+
   <body>
     <div id="root"></div>
   </body>
