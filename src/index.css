@@ -41,6 +41,19 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Normalize box-sizing and ensure root containers occupy full width
+   This avoids platform/build differences where some wrapper may shrink
+   the layout and cause document.documentElement.clientWidth to report
+   a smaller value in production. */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root, #scroll-container {
+  width: 100%;
+  min-width: 100%;
+}
+
 /* Scrollbar styling (keeps cyber look but minimal) */
 .scroll-snap-container::-webkit-scrollbar {
   width: 8px;
