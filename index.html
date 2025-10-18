@@ -7,30 +7,40 @@
     <title>Himon Sarkar</title>
   </head>
 <script>
-  window.addEventListener("load", () => {
-    // Step 1: Measure the natural layout width
-    const baseWidth = document.documentElement.scrollWidth;
+  function applyDynamicScale() {
+    const body = document.body;
 
-    // Step 2: Determine the current viewport width
+    // Measure content width before scaling
+    const baseWidth = body.scrollWidth;
+
+    // Viewport width
     const viewportWidth = window.innerWidth;
 
-    // Step 3: Compute scale ratio (only shrink, never enlarge)
+    // Compute scale (shrink only)
     const scale = Math.min(viewportWidth / baseWidth, 1);
 
-    // Step 4: Apply scaling
-    document.documentElement.style.transform = `scale(${scale})`;
-    document.documentElement.style.transformOrigin = "top left";
-    document.documentElement.style.width = `${100 / scale}%`;
+    // Apply transform
+    body.style.transform = `scale(${scale})`;
+    body.style.transformOrigin = "top left";
+    body.style.width = `${100 / scale}%`;
 
-    // Step 5: Optional — handle resizes dynamically
-    window.addEventListener("resize", () => {
-      const newViewportWidth = window.innerWidth;
-      const newScale = Math.min(newViewportWidth / baseWidth, 1);
-      document.documentElement.style.transform = `scale(${newScale})`;
-      document.documentElement.style.width = `${100 / newScale}%`;
-    });
+    // Prevent extra whitespace
+    body.style.margin = "0";
+    body.style.padding = "0";
+    document.documentElement.style.overflowX = "hidden";
+  }
+
+  // Run after layout stabilizes
+  window.addEventListener("load", () => {
+    requestAnimationFrame(applyDynamicScale);
+  });
+
+  // Recalculate on resize
+  window.addEventListener("resize", () => {
+    requestAnimationFrame(applyDynamicScale);
   });
 </script>
+
 
   <body>
     <div id="root"></div>
