@@ -8,6 +8,9 @@
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
+    {
+      "src": "^/(?!assets/|favicon.ico|vite.svg|robots.txt|sitemap.xml).*$",
+      "dest": "/index.html"
+    }
   ]
 }
