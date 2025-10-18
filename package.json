@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build --minify",
-    "build:analyze": "npm run build && npx vite-bundle-analyzer dist",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "clean": "rm -rf dist node_modules/.vite"
+  "dev": "vite",
+  "build": "tsc -b && vite build --minify",
+  "build:analyze": "npm run build && npx vite-bundle-analyzer dist",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "clean": "rm -rf dist node_modules/.vite",
+  "deploy": "npm run build"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
