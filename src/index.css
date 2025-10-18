@@ -41,18 +41,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Normalize box-sizing and ensure root containers occupy full width
-   This avoids platform/build differences where some wrapper may shrink
-   the layout and cause document.documentElement.clientWidth to report
-   a smaller value in production. */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body, #root, #scroll-container {
-  width: 100%;
-  min-width: 100%;
-}
 
 /* Scrollbar styling (keeps cyber look but minimal) */
 .scroll-snap-container::-webkit-scrollbar {
@@ -300,36 +288,3 @@ body {
   100% { transform: translateY(calc(100vh + 200px)); opacity: 0; }
 }
 
-/* -------------------------------------------------------------------------
-   Safety overrides: prevent accidental global scaling/zoom
-   Some animations in component CSS use scale(...) for small decorative
-   elements. Add explicit rules to ensure no high-level container (html,
-   body, #root, #scroll-container, main) get scaled which can cause the
-   entire site to appear 'zoomed in' in production.
-   These are intentionally specific and use !important so they win over
-   accidental cascade issues.
-   ------------------------------------------------------------------------- */
-html, body, #root, #scroll-container, main, .scroll-snap-container {
-  transform: none !important;
-  -webkit-transform: none !important;
-  -ms-transform: none !important;
-}
-
-/* Ensure no legacy zoom property is applied globally */
-:root {
-  zoom: unset !important;
-}
-
-/* Fallback zoom class when browser doesn't support `zoom` style.
-   It uses transform: scale(...) and compensates width so content doesn't
-   overflow horizontally. Applied to <html> by JS as `zoom-80`. */
-html.zoom-80 {
-  transform-origin: 0 0;
-  transform: scale(0.8);
-  width: 125%; /* 1 / 0.8 = 1.25 to compensate scaling */
-}
-
-/* Also ensure body and root fill the scaled area */
-html.zoom-80, html.zoom-80 body, html.zoom-80 #root, html.zoom-80 #scroll-container {
-  min-width: 125%;
-}
