@@ -14,7 +14,10 @@ const interests: Interest[] = [
     id: 1,
     title: "Scuba Diving & Ocean Adventures",
     description: "Exploring the vibrant world beneath the waves 🌊",
-    images: ["/src/assets/Interests/scuba/scuba1.jpeg", "/src/assets/Interests/scuba/scuba2.jpeg"],
+    images: [
+      new URL("../../assets/Interests/scuba/scuba1.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/scuba/scuba2.jpeg", import.meta.url).href,
+    ],
     details:
       "Discovered my love for the ocean while scuba diving in the Andamans — an unforgettable underwater experience. I also enjoy snorkeling and swimming, constantly drawn to the beauty and calm of the sea.",
   },
@@ -22,7 +25,11 @@ const interests: Interest[] = [
     id: 2,
     title: "Fitness & Strength Training",
     description: "Building discipline, one rep at a time 💪",
-    images: ["/src/assets/Interests/fitness/gym1.jpeg", "/src/assets/Interests/fitness/gym2.jpeg", "/src/assets/Interests/fitness/gym3.jpeg"],
+    images: [
+      new URL("../../assets/Interests/fitness/gym1.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/fitness/gym2.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/fitness/gym3.jpeg", import.meta.url).href,
+    ],
     details:
       "A daily gym-goer passionate about strength and endurance training. I can do 40 pushups and 15 pullups in a single set, and I’m always chasing progress — physically and mentally.",
   },
@@ -30,7 +37,14 @@ const interests: Interest[] = [
     id: 3,
     title: "Music & Guitar",
     description: "Strumming stories through six strings 🎸",
-    images: ["/src/assets/Interests/music/jimi.jpeg", "/src/assets/Interests/music/guitar.jpeg", "/src/assets/Interests/music/mayer.jpeg", "/src/assets/Interests/music/guitar2.jpeg", "/src/assets/Interests/music/pinkfloyd.jpeg", "/src/assets/Interests/music/page.jpeg"],
+    images: [
+      new URL("../../assets/Interests/music/jimi.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/music/guitar.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/music/mayer.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/music/guitar2.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/music/pinkfloyd.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/music/page.jpeg", import.meta.url).href,
+    ],
     details:
       "I’m a guitarist with a Fender Strat at home. Deeply inspired by legends like Jimi Hendrix, Pink Floyd, John Mayer, and Jimmy Page. Music is my escape — from classic rock to Linkin Park and The Beatles.",
   },
@@ -38,7 +52,12 @@ const interests: Interest[] = [
     id: 4,
     title: "Travel & Culture",
     description: "Discovering new places, people, and cuisines 🌍",
-    images: ["/src/assets/Interests/travel/travel1.jpeg", "/src/assets/Interests/travel/travel2.jpeg", "/src/assets/Interests/travel/travel3.jpeg", "/src/assets/Interests/travel/travel4.jpeg"],
+    images: [
+      new URL("../../assets/Interests/travel/travel1.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/travel/travel2.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/travel/travel3.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/travel/travel4.jpeg", import.meta.url).href,
+    ],
     details:
       "I love exploring new destinations, meeting diverse people, and tasting local foods. Every journey teaches me something new about the world and myself.",
   },
@@ -46,7 +65,11 @@ const interests: Interest[] = [
     id: 5,
     title: "Driving & Automobiles",
     description: "Finding freedom on open roads 🚗",
-    images: ["/src/assets/Interests/driving/car1.jpeg", "/src/assets/Interests/driving/car2.jpeg", "/src/assets/Interests/driving/car3.jpeg"],
+    images: [
+      new URL("../../assets/Interests/driving/car1.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/driving/car2.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/driving/car3.jpeg", import.meta.url).href,
+    ],
     details:
       "I own a Hyundai i10 — my first car, bought from my first salary. It’s more than just a ride; it’s a symbol of independence and countless memories of late-night drives and road trips.",
   },
@@ -54,7 +77,11 @@ const interests: Interest[] = [
     id: 6,
     title: "Cycling & Outdoor Challenges",
     description: "Pedaling through passion and perseverance 🚴‍♂️",
-    images: ["/src/assets/Interests/cycling/cycle1.jpeg", "/src/assets/Interests/cycling/cycle2.jpeg", "/src/assets/Interests/cycling/cycle3.jpeg"],
+    images: [
+      new URL("../../assets/Interests/cycling/cycle1.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/cycling/cycle2.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/cycling/cycle3.jpeg", import.meta.url).href,
+    ],
     details:
       "I enjoy long cycling sessions and even compete occasionally. It’s my way to stay active, challenge myself, and enjoy the great outdoors.",
   },
@@ -62,7 +89,11 @@ const interests: Interest[] = [
     id: 7,
     title: "Gaming",
     description: "Immersing in digital adventures 🎮",
-    images: ["/src/assets/Interests/gaming/blackflag.jpeg", "/src/assets/Interests/gaming/blacklist.jpeg", "/src/assets/Interests/gaming/fifa.jpeg"],
+    images: [
+      new URL("../../assets/Interests/gaming/blackflag.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/gaming/blacklist.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/gaming/fifa.jpeg", import.meta.url).href,
+    ],
     details:
       "Gaming fuels my competitive spirit and creativity. Favorites include GTA V, Splinter Cell: Blacklist, Assassin’s Creed: Black Flag, and FIFA 14.",
   },
@@ -70,7 +101,11 @@ const interests: Interest[] = [
     id: 8,
     title: "AI & Tech Innovation",
     description: "Building the future, one line of code at a time 🤖",
-    images: ["/src/assets/Interests/tech/tech1.jpeg", "/src/assets/Interests/tech/tech2.jpeg", "/src/assets/Interests/tech/tech3.jpeg"],
+    images: [
+      new URL("../../assets/Interests/tech/tech1.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/tech/tech2.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/tech/tech3.jpeg", import.meta.url).href,
+    ],
     details:
       "Fascinated by AI, coding, and emerging tech. I love experimenting with new AI tools, building small projects, and exploring how technology can shape smarter, safer systems.",
   },
@@ -78,7 +113,12 @@ const interests: Interest[] = [
     id: 9,
     title: "Photography",
     description: "Capturing emotions through frames 📸",
-    images: ["/src/assets/Interests/photography/cam1.jpeg", "/src/assets/Interests/photography/cam2.jpeg", "/src/assets/Interests/photography/cam3.jpeg", "/src/assets/Interests/photography/cam4.jpeg"],
+    images: [
+      new URL("../../assets/Interests/photography/cam1.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/photography/cam2.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/photography/cam3.jpeg", import.meta.url).href,
+      new URL("../../assets/Interests/photography/cam4.jpeg", import.meta.url).href,
+    ],
     details:
       "Photography lets me express my perspective — from street shots to landscapes. I enjoy framing moments that tell stories without words.",
   },
@@ -86,7 +126,9 @@ const interests: Interest[] = [
     id: 10,
     title: "Social Life & Parties",
     description: "Connecting, celebrating, and living the moment 🎉",
-    images: ["/src/assets/Interests/social/party1.jpeg"],
+    images: [
+      new URL("../../assets/Interests/social/party1.jpeg", import.meta.url).href,
+    ],
     details:
       "I’m a social animal who loves good company, music, and parties. During my time at Grant Thornton, I’ve made some unforgettable memories with amazing people.",
   },

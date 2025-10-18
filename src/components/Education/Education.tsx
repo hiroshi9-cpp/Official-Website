@@ -8,7 +8,7 @@ const educationJourney = [
     story:
       "First started to code in C++",
     highlight: "95.4% in AISSCE (Science Stream)",
-    image: "/src/assets/education/school.jpg"
+    image: new URL("../../assets/education/school.jpg", import.meta.url).href
   },
   {
     phase: "Heritage Institute of Technology, Kolkata",
@@ -16,7 +16,7 @@ const educationJourney = [
     story:
       "Studied hard, partied harder. Had some great professors",
     highlight: "B.Tech Computer Science & Engineering – DGPA 9.44/10",
-    image: "/src/assets/education/college.jpg"
+    image: new URL("../../assets/education/college.jpg", import.meta.url).href
   },
   // {
   //   phase: "Graduate Aspirant – Georgia Institute of Technology (Planned)",

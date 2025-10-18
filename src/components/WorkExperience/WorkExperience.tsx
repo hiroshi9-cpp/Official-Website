@@ -39,7 +39,7 @@ const workExperiences: WorkExperience[] = [
       "Assessed enterprise LLMs using Moonshot AI toolkit to identify bias and hallucination, strengthening trustworthy AI deployment.",
       "Tested Azure OpenAI against OWASP LLM vulnerabilities, aligning AI controls with EU AI Act compliance to mitigate data leakage risks."
     ],
-    image: "/src/assets/work-ex/grant-thornton.png",
+  image: new URL("../../assets/work-ex/grant-thornton.png", import.meta.url).href,
   },
   {
     id: 2,
@@ -63,7 +63,7 @@ const workExperiences: WorkExperience[] = [
       "Designed database schema to manage 7,000+ book records and 300+ active users, ensuring reliability and scalability.",
       "Developed an AI-based recommendation system using regression analysis with 92% accuracy to personalize content delivery."
     ],
-    image: "/src/assets/work-ex/caravel-labs.png",
+  image: new URL("../../assets/work-ex/caravel-labs.png", import.meta.url).href,
   },
   {
     id: 3,
@@ -88,7 +88,7 @@ const workExperiences: WorkExperience[] = [
       "Optimized cloud architecture for scalability and fault tolerance, ensuring uninterrupted uptime under high traffic.",
       "Benchmarked multiple segmentation frameworks (YOLOv8, Detectron2, Faster R-CNN) to maximize accuracy across 6 grain classes."
     ],
-    image: "/src/assets/work-ex/cdac.png",
+  image: new URL("../../assets/work-ex/cdac.png", import.meta.url).href,
   },
   {
     id: 4,
@@ -111,7 +111,7 @@ const workExperiences: WorkExperience[] = [
       "Implemented Kamada–Kawai graph layout using NetworkX to model solution mixing and splitting behaviors in microfluidic systems.",
       "Designed and simulated a 3D hexagonal mixer prototype in Autodesk Fusion 360, validated via Arduino-based hardware testing."
     ],
-    image: "/src/assets/work-ex/iit-kgp.png",
+  image: new URL("../../assets/work-ex/iit-kgp.png", import.meta.url).href,
   },
 ];
 
