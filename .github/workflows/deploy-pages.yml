@@ -40,12 +40,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: dist
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
-        with:
-          folder: ./dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
